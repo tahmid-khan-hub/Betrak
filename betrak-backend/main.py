@@ -10,6 +10,8 @@ from app.api.v1.routes import predict, health
 
 ### start server command -> uvicorn main:app --reload
 
+# to see full interactive api doc -> http://localhost:8000/docs
+
 # create all db tables on startup
 @asynccontextmanager
 async def lifespan(app: FastAPI):

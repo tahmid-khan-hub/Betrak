@@ -22,4 +22,4 @@ class UserInput(BaseModel):
         "WhatsApp"
     ]
     sleep_hours_per_night: float = Field(..., ge=0.0, le=24.0)
-    mental_health_answers = MentalHealthAnswers
+    mental_health_answers: MentalHealthAnswers

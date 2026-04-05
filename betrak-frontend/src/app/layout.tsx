@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Lato, Plus_Jakarta_Sans } from "next/font/google";
+import { Lato, Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const lato = Lato({
   variable: "--font-lato",
@@ -27,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lato.variable} ${jakartaSans.variable} h-full antialiased bg-[#0c121f]`}
+      className={cn("h-full", "antialiased", "bg-[#0c121f]", lato.variable, jakartaSans.variable, "font-sans", inter.variable)}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

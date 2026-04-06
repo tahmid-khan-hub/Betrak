@@ -3,6 +3,7 @@ import AddictionLevels from "./HomeComponents/AddictionLevels/AddictionLevels";
 import Banner from "./HomeComponents/Banner/Banner";
 import HowItWorks from "./HomeComponents/HowItWorks/HowItWorks";
 import WhatWeMeasure from "./HomeComponents/WhatWeMeasure/WhatWeMeasure";
+import WhyItMatters from "./HomeComponents/WhyItMatters/WhyItMatters";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <HowItWorks />
       <WhatWeMeasure />
       <AddictionLevels />
+      <WhyItMatters />
     </div>
   );
 }

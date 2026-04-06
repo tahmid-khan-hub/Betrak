@@ -20,7 +20,7 @@ const Banner = () => {
         </span>
       </h1>
 
-      <p className="lato my-6 max-w-3xl mx-auto text-lg leading-relaxed text-gray-400">
+      <p className="my-6 max-w-3xl mx-auto text-lg leading-relaxed text-gray-400">
         Betrak uses AI to analyze your habits and give you an honest,
         personalized addiction level plus tips to help you reclaim your time.
       </p>

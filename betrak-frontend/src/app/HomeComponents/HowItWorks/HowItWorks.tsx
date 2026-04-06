@@ -36,7 +36,7 @@ const HowItWorks = () => {
           <h2 className="jakartaSans text-4xl font-bold text-gray-50">
             How It Works
           </h2>
-          <p className="lato mt-3 text-gray-400">
+          <p className=" mt-3 text-gray-400">
             Three simple steps to understand your relationship with social media.
           </p>
         </div>

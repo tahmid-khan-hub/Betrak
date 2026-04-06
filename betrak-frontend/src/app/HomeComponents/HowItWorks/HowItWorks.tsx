@@ -37,8 +37,7 @@ const HowItWorks = () => {
             How It Works
           </h2>
           <p className="lato mt-3 text-gray-400">
-            Three simple steps to understand your relationship with social
-            media.
+            Three simple steps to understand your relationship with social media.
           </p>
         </div>
 

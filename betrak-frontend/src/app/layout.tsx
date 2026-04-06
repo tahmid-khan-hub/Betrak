@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lato, Plus_Jakarta_Sans, Inter } from "next/font/google";
+import { Lato, Plus_Jakarta_Sans, Inter, Lobster_Two } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "./SharedComponents/Navbar/Navbar";
@@ -12,6 +12,12 @@ const lato = Lato({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
+
+const lobster = Lobster_Two({
+  variable: "--font-lobster",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+})
 
 const jakartaSans = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -32,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", "bg-[#0c121f]", lato.variable, jakartaSans.variable, "font-sans", inter.variable)}
+      className={cn("h-full", "antialiased", "bg-[#0c121f]", lato.variable, jakartaSans.variable, lobster.variable, "font-sans", inter.variable)}
     >
       <body className="min-h-full flex flex-col">
         <Navbar />

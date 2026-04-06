@@ -9,6 +9,10 @@
     font-family: var(--font-lato);
 }
 
+.lobster {
+    font-family: var(--font-lobster);
+}
+
 @theme inline {
     --font-heading: var(--font-sans);
     --font-sans: var(--font-sans);

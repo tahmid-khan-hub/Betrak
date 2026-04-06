@@ -23,9 +23,9 @@ const Navbar = () => {
       <div className="max-w-5xl mx-auto w-full flex items-center justify-between px-2 md:px-3 h-16">
         {/* Left side */}
         <div
-          className="jakartaSans inline-flex items-center justify-center text-xl font-bold"
+          className="jakartaSans inline-flex items-center justify-center text-xl font-bold bg-linear-to-r from-indigo-200 to-indigo-500 bg-clip-text text-transparent"
         >
-          Betrak
+          <span className="lobster text-[28px] -mt-1">B</span>etrak
         </div>
 
         {/* Center links */}

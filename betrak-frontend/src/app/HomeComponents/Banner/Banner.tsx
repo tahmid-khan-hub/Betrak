@@ -25,7 +25,7 @@ const Banner = () => {
         personalized addiction level plus tips to help you reclaim your time.
       </p>
 
-      <Link href={"/"}><Button className="lato bg-indigo-500 text-black font-semibold hover:bg-indigo-600">Take the Free Test</Button></Link>
+      <Link href={"/assessment"}><Button className="bg-indigo-500/70 text-white hover:bg-indigo-600/70 px-8 py-6 text-md font-semibold">Take Free Test</Button></Link>
     </div>
   );
 };

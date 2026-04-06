@@ -1,4 +1,5 @@
 "use client"
+import ScrollAnimate from "@/app/hooks/ScrollAnimate";
 import WhatWeMeasureData from "./WhatWeMeasureData";
 
 const WhatWeMeasure = () => {
@@ -8,20 +9,20 @@ const WhatWeMeasure = () => {
 
         {/* Section Header */}
         <div className="mb-12 text-center">
-          <h2 className="jakartaSans text-4xl font-bold text-gray-50">
+          <ScrollAnimate><h2 className="jakartaSans text-4xl font-bold text-gray-50">
             What We Measure
-          </h2>
-          <p className="mt-3 text-gray-400">
+          </h2></ScrollAnimate>
+          <ScrollAnimate><p className="mt-3 text-gray-400">
             Six key signals your answers provide to power the prediction.
-          </p>
+          </p></ScrollAnimate>
         </div>
 
         {/* Grid */}
         <div className="grid grid-cols-2 gap-5 md:grid-cols-3">
-          {WhatWeMeasureData.map((item) => (
-            <div
+          {WhatWeMeasureData.map((item, i) => (
+            <ScrollAnimate key={i} direction="up" delay={i * 0.08}><div
               key={item.heading}
-              className="flex-col md:flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-indigo-500/40 hover:bg-white/10 "
+              className="flex-col md:flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-indigo-500/40 hover:bg-white/10 h-full"
             >
               {/* Icon */}
               <div className="mt-0.5 mb-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-400">
@@ -37,7 +38,7 @@ const WhatWeMeasure = () => {
                   {item.paragraph}
                 </p>
               </div>
-            </div>
+            </div></ScrollAnimate>
           ))}
         </div>
 

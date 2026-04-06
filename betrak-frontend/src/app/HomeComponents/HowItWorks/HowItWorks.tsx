@@ -1,4 +1,5 @@
 "use client";
+import ScrollAnimate from "@/app/hooks/ScrollAnimate";
 import { BsClipboardData } from "react-icons/bs";
 import { MdOutlinePsychology } from "react-icons/md";
 import { RiMedalLine } from "react-icons/ri";
@@ -33,18 +34,18 @@ const HowItWorks = () => {
       <div className="mx-auto max-w-5xl">
         {/* Section Header */}
         <div className="mb-12 text-center">
-          <h2 className="jakartaSans text-4xl font-bold text-gray-50">
+          <ScrollAnimate><h2 className="jakartaSans text-4xl font-bold text-gray-50">
             How It Works
-          </h2>
-          <p className=" mt-3 text-gray-400">
+          </h2></ScrollAnimate>
+          <ScrollAnimate><p className=" mt-3 text-gray-400">
             Three simple steps to understand your relationship with social media.
-          </p>
+          </p></ScrollAnimate>
         </div>
 
         {/* Cards */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {HowItWorksData.map((item) => (
-            <div
+          {HowItWorksData.map((item, i) => (
+            <ScrollAnimate key={i} direction="up" delay={i * 0.08}><div
               key={item.id}
               className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-indigo-500/40 hover:bg-white/10"
             >
@@ -65,7 +66,7 @@ const HowItWorks = () => {
               <p className="mt-2 text-sm leading-relaxed text-gray-400">
                 {item.paragraph}
               </p>
-            </div>
+            </div></ScrollAnimate>
           ))}
         </div>
       </div>

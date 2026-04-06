@@ -4,8 +4,8 @@ import WhatWeMeasureData from "./WhatWeMeasureData";
 
 const WhatWeMeasure = () => {
   return (
-    <section className="px-2 py-32">
-      <div className="mx-auto max-w-5xl">
+    <section className="bg-gray-900">
+      <div className="px-2 py-32 mx-auto max-w-5xl">
 
         {/* Section Header */}
         <div className="mb-12 text-center">

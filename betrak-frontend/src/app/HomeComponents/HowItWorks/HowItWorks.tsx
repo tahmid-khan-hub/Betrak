@@ -30,8 +30,8 @@ const HowItWorksData = [
 
 const HowItWorks = () => {
   return (
-    <section className="px-2 py-32">
-      <div className="mx-auto max-w-5xl">
+    <section className="">
+      <div className="px-2 py-32 max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="mb-12 text-center">
           <ScrollAnimate><h2 className="jakartaSans text-4xl font-bold text-gray-50">
@@ -47,7 +47,7 @@ const HowItWorks = () => {
           {HowItWorksData.map((item, i) => (
             <ScrollAnimate key={i} direction="up" delay={i * 0.08}><div
               key={item.id}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-indigo-500/40 hover:bg-white/10"
+              className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-indigo-500/40 hover:bg-white/10 h-full"
             >
               {/* Step + Icon */}
               <div className="mb-4 flex items-center justify-between">

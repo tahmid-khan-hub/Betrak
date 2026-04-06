@@ -1,11 +1,77 @@
-"use client"
+"use client";
+import { BsClipboardData } from "react-icons/bs";
+import { MdOutlinePsychology } from "react-icons/md";
+import { RiMedalLine } from "react-icons/ri";
+
+const HowItWorksData = [
+  {
+    id: "01",
+    icon: <BsClipboardData size={28} />,
+    heading: "Answer Questions",
+    paragraph:
+      "Tell us about your daily habits how long you scroll, what platforms you use, how well you sleep and a few quick questions about how social media makes you feel.",
+  },
+  {
+    id: "02",
+    icon: <MdOutlinePsychology size={28} />,
+    heading: "AI Analyzes Pattern",
+    paragraph:
+      "Our trained model looks at your usage behavior and mental health signals together to find patterns linked to social media dependency.",
+  },
+  {
+    id: "03",
+    icon: <RiMedalLine size={28} />,
+    heading: "Get Result & Tips",
+    paragraph:
+      "Receive your addiction level High, Medium, or Low along with personalized suggestions to help you build healthier digital habits.",
+  },
+];
 
 const HowItWorks = () => {
-    return (
-        <div>
-            
+  return (
+    <section className="px-2 py-24">
+      <div className="mx-auto max-w-5xl">
+        {/* Section Header */}
+        <div className="mb-12 text-center">
+          <h2 className="jakartaSans text-4xl font-bold text-gray-50">
+            How It Works
+          </h2>
+          <p className="lato mt-3 text-gray-400">
+            Three simple steps to understand your relationship with social
+            media.
+          </p>
         </div>
-    );
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {HowItWorksData.map((item) => (
+            <div
+              key={item.id}
+              className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-indigo-500/40 hover:bg-white/10"
+            >
+              {/* Step + Icon */}
+              <div className="mb-4 flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-widest text-indigo-400">
+                  Step {item.id}
+                </span>
+                <span className="text-indigo-400">{item.icon}</span>
+              </div>
+
+              {/* Heading */}
+              <h3 className="font-jakarta text-lg font-semibold text-gray-100">
+                {item.heading}
+              </h3>
+
+              {/* Paragraph */}
+              <p className="mt-2 text-sm leading-relaxed text-gray-400">
+                {item.paragraph}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default HowItWorks;

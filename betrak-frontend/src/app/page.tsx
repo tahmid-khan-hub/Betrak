@@ -1,4 +1,5 @@
 "use client"
+import AddictionLevels from "./HomeComponents/AddictionLevels/AddictionLevels";
 import Banner from "./HomeComponents/Banner/Banner";
 import HowItWorks from "./HomeComponents/HowItWorks/HowItWorks";
 import WhatWeMeasure from "./HomeComponents/WhatWeMeasure/WhatWeMeasure";
@@ -9,6 +10,7 @@ export default function Home() {
       <Banner />
       <HowItWorks />
       <WhatWeMeasure />
+      <AddictionLevels />
     </div>
   );
 }

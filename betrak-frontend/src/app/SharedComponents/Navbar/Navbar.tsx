@@ -29,8 +29,8 @@ const Navbar = () => {
         </div>
 
         {/* Center links */}
-        <div className="hidden lg:flex flex-1 justify-center">
-          <ul className="lato flex gap-8 text-white">{links}</ul>
+        <div className="hidden lg:flex flex-1 justify-end">
+          <ul className="flex gap-8 text-white">{links}</ul>
         </div>
 
         {/* Right side */}

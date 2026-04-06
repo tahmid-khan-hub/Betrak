@@ -19,7 +19,7 @@ const CTA = () => {
           {/* Heading */}
           <h2 className="jakartaSans text-4xl font-bold text-gray-50">
             Ready to find out where{" "}
-            <span className="bg-linear-to-r from-indigo-400 to-indigo-700 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-indigo-200 to-indigo-500 bg-clip-text text-transparent">
               you stand?
             </span>
           </h2>

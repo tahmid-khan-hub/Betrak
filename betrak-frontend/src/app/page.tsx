@@ -8,7 +8,7 @@ import WhyItMatters from "./HomeComponents/WhyItMatters/WhyItMatters";
 
 export default function Home() {
   return (
-    <div className="max-w-325 mx-auto px-2">
+    <div className="max-w-325 mx-auto px-2 overflow-x-hidden">
       <Banner />
       <HowItWorks />
       <WhatWeMeasure />

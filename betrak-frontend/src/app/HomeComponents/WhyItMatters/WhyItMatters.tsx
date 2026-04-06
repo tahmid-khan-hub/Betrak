@@ -32,7 +32,7 @@ const WhyItMatters = () => {
           <div className="flex flex-col gap-6">
             <div>
               <ScrollAnimate><h2 className="jakartaSans text-4xl font-bold text-gray-50">
-                Why It Matters
+                Why It <span className="bg-linear-to-r from-indigo-200 to-indigo-500 bg-clip-text text-transparent">Matters</span>
               </h2></ScrollAnimate>
               <ScrollAnimate><p className="mt-3 text-gray-400">
                 Social media addiction affects more than just screen time. 

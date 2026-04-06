@@ -10,7 +10,7 @@ const AddictionLevels = () => {
         {/* Section Header */}
         <div className="mb-12 text-center">
           <ScrollAnimate><h2 className="jakartaSans text-4xl font-bold text-gray-50">
-            Addiction Levels
+            Addiction <span className="bg-linear-to-r from-indigo-200 to-indigo-500 bg-clip-text text-transparent">Levels</span>
           </h2></ScrollAnimate>
           <ScrollAnimate><p className="mt-3 text-gray-400">
             Betrak classifies your result into one of three levels. Here is what each one means.

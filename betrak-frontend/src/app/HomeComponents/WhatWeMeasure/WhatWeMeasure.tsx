@@ -10,7 +10,7 @@ const WhatWeMeasure = () => {
         {/* Section Header */}
         <div className="mb-12 text-center">
           <ScrollAnimate><h2 className="jakartaSans text-4xl font-bold text-gray-50">
-            What We Measure
+            What We <span className="bg-linear-to-r from-indigo-200 to-indigo-500 bg-clip-text text-transparent">Measure</span>
           </h2></ScrollAnimate>
           <ScrollAnimate><p className="mt-3 text-gray-400">
             Six key signals your answers provide to power the prediction.

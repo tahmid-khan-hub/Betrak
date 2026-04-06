@@ -35,7 +35,7 @@ const HowItWorks = () => {
         {/* Section Header */}
         <div className="mb-12 text-center">
           <ScrollAnimate><h2 className="jakartaSans text-4xl font-bold text-gray-50">
-            How It Works
+            How It <span className="bg-linear-to-r from-indigo-200 to-indigo-500 bg-clip-text text-transparent">Works</span>
           </h2></ScrollAnimate>
           <ScrollAnimate><p className=" mt-3 text-gray-400">
             Three simple steps to understand your relationship with social media.

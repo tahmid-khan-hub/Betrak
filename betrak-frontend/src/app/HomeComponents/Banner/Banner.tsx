@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Banner = () => {
   return (
-    <div className="flex flex-col items-center justify-center overflow-hidden text-center py-24">
+    <div className="flex flex-col items-center justify-center overflow-hidden text-center py-32">
       {/* Badge */}
       <div className="lato flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 mb-3">
         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-indigo-400" />

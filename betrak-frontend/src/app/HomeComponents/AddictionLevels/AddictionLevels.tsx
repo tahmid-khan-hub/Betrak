@@ -3,7 +3,7 @@ import AddictionLevelsData, { colorMap } from "./AddictionLevelsData";
 
 const AddictionLevels = () => {
   return (
-    <section className="px-2 py-24">
+    <section className="px-2 py-32">
       <div className="mx-auto max-w-5xl">
 
         {/* Section Header */}

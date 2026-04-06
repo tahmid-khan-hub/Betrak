@@ -29,7 +29,7 @@ const HowItWorksData = [
 
 const HowItWorks = () => {
   return (
-    <section className="px-2 py-24">
+    <section className="px-2 py-32">
       <div className="mx-auto max-w-5xl">
         {/* Section Header */}
         <div className="mb-12 text-center">

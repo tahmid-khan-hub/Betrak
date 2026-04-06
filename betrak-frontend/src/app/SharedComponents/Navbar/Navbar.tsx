@@ -20,10 +20,10 @@ const Navbar = () => {
   );
   return (
     <div className="sticky top-0 z-10 bg-gray-900 text-white">
-      <div className="max-w-325 mx-auto w-full flex items-center justify-between px-2 md:px-3 h-16">
+      <div className="max-w-5xl mx-auto w-full flex items-center justify-between px-2 md:px-3 h-16">
         {/* Left side */}
         <div
-          className="jakartaSans inline-flex items-center justify-center p-2 "
+          className="jakartaSans inline-flex items-center justify-center text-xl font-bold"
         >
           Betrak
         </div>

@@ -22,7 +22,7 @@ const WhyItMattersData = [
 
 const WhyItMatters = () => {
   return (
-    <section className="px-2 py-24">
+    <section className="px-2 py-32">
       <div className="mx-auto max-w-5xl">
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">

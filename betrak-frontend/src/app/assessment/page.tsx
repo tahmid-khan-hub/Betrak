@@ -1,5 +1,7 @@
 "use client";
 
+import PersonalInfo from "./components/PersonalInfo";
+
 const AssessmentPage = () => {
   return (
     <div className="min-h-screen px-6 py-24">
@@ -18,6 +20,12 @@ const AssessmentPage = () => {
             responses are used solely to generate your personalized addiction
             assessment.
           </p>
+        </div>
+
+        {/* personal info */}
+        <div className="mt-24">
+            <h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500">Personal Info</h2>
+            <PersonalInfo />
         </div>
       </div>
     </div>

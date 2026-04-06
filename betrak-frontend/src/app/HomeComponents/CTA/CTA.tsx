@@ -1,3 +1,4 @@
+import ScrollAnimate from "@/app/hooks/ScrollAnimate";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -5,8 +6,7 @@ const CTA = () => {
   return (
     <section className="px-6 py-20">
       <div className="mx-auto max-w-3xl">
-
-        <div className="flex flex-col items-center gap-6 rounded-2xl border border-indigo-500/20 bg-indigo-500/5 px-8 py-16 text-center">
+        <ScrollAnimate direction="up"><div className="flex flex-col items-center gap-6 rounded-2xl border border-indigo-500/20 bg-indigo-500/5 px-8 py-16 text-center">
 
           {/* Badge */}
           <div className="flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5">
@@ -32,7 +32,7 @@ const CTA = () => {
           {/* Button */}
           <Link href={"/assessment"}><Button className={"bg-indigo-500/70 text-white hover:bg-indigo-600/70 px-8 py-6 text-md font-semibold"}>Take the Free Test<span className="transition-transform group-hover:translate-x-1">→</span></Button></Link>
 
-        </div>
+        </div></ScrollAnimate>
       </div>
     </section>
   );

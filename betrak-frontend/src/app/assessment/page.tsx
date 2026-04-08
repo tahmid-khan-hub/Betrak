@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import ScrollAnimate from "../hooks/ScrollAnimate";
 import PersonalInfo from "./components/PersonalInfo";
 import UsageInfo from "./components/UsageInfo";
@@ -30,8 +31,11 @@ const AssessmentPage = () => {
           <PersonalInfo /></div></ScrollAnimate>
 
           {/* usage info form fields */}
-          <ScrollAnimate delay={0.3}><div><h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500 mb-8">Usage Info</h2>
+          <ScrollAnimate delay={0.3}><div className="mb-18"><h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500 mb-8">Usage Info</h2>
           <UsageInfo /></div></ScrollAnimate>
+
+          {/* next button */}
+          <div className="flex justify-end"><Button className=" bg-indigo-500/70 text-white hover:bg-indigo-600/70 px-6 py-5 text-md font-semibold">Next</Button></div>
         </div>
       </div>
     </div>

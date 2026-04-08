@@ -1,6 +1,6 @@
 "use client";
-
 import PersonalInfo from "./components/PersonalInfo";
+import UsageInfo from "./components/UsageInfo";
 
 const AssessmentPage = () => {
   return (
@@ -26,8 +26,13 @@ const AssessmentPage = () => {
       {/* personal info */}
       <div className="mt-48">
         <div className="max-w-5xl mx-auto">
-          <h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500 mb-8">Personal Info</h2>
-          <PersonalInfo />
+          {/* personal info form fields */}
+          <div className="mb-18"><h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500 mb-8">Personal Info</h2>
+          <PersonalInfo /></div>
+
+          {/* usage info form fields */}
+          <div><h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500 mb-8">Usage Info</h2>
+          <UsageInfo /></div>
         </div>
       </div>
     </div>

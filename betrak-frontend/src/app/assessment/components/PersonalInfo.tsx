@@ -12,7 +12,8 @@ const PersonalInfo = () => {
           min={10}
           max={100}
           placeholder="Enter your age"
-          className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-gray-100 placeholder-gray-500 outline-none transition focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/40"
+          className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-gray-100 placeholder-gray-500 outline-none transition focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/40
+          [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         />
       </div>
 

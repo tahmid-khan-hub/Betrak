@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "./SharedComponents/Navbar/Navbar";
 import Footer from "./SharedComponents/Footer/Footer";
+import QueryProvider from "./QueryProvider";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -41,9 +42,11 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", "bg-[#0c121f]", lato.variable, jakartaSans.variable, lobster.variable, "font-sans", inter.variable)}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
-        <Footer />
+        <QueryProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </QueryProvider>
       </body>
     </html>
   );

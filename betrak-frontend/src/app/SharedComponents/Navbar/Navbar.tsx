@@ -1,20 +1,20 @@
 "use client"
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 import Menu from "@/app/hooks/Menu";
+import NavLink from "@/app/hooks/NavLinks";
 
 const Navbar = () => {
   const { isOpen, setIsOpen, menuRef } = Menu();
   const links = (
     <>
-      <li className="hover:text-indigo-500">
-        <Link href="/">Home</Link>
+      <li>
+        <NavLink href="/">Home</NavLink>
       </li>
-      <li className="hover:text-indigo-500">
-        <Link href="/assessment">Assessment</Link>
+      <li>
+        <NavLink href="/assessment">Assessment</NavLink>
       </li>
-      <li className="hover:text-indigo-500">
-        <Link href="/result">Result</Link>
+      <li>
+        <NavLink href="/result">Result</NavLink>
       </li>
     </>
   );

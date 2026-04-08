@@ -4,7 +4,7 @@ import PersonalInfo from "./components/PersonalInfo";
 
 const AssessmentPage = () => {
   return (
-    <div className="min-h-screen px-6 py-24">
+    <div className="min-h-screen px-2 py-24">
       <div className="mx-auto max-w-5xl">
         {/* Header */}
         <div className="mb-12 text-center">
@@ -22,10 +22,12 @@ const AssessmentPage = () => {
           </p>
         </div>
 
-        {/* personal info */}
-        <div className="mt-24">
-            <h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500">Personal Info</h2>
-            <PersonalInfo />
+      </div>
+      {/* personal info */}
+      <div className="mt-48">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500 mb-8">Personal Info</h2>
+          <PersonalInfo />
         </div>
       </div>
     </div>

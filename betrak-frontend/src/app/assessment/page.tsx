@@ -1,10 +1,18 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import ScrollAnimate from "../hooks/ScrollAnimate";
-import PersonalInfo from "./components/PersonalInfo";
-import UsageInfo from "./components/UsageInfo";
+import { useRouter, useSearchParams } from "next/navigation";
+import PersonalAndUsageInfo from "./components/PersonalAndUsageInfo/PersonalAndUsageInfo";
+import MentalHealthQuestions from "./components/MentalHealthQuestions/MentalHealthQuestions";
 
 const AssessmentPage = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const step = Number(searchParams.get("step")) || 1;
+
+  const goToStep = (stepNumber: number) => {
+    router.push(`/assessment?step=${stepNumber}`);
+  };
   return (
     <div className="min-h-screen px-2 py-24">
       <div className="mx-auto max-w-5xl">
@@ -23,20 +31,15 @@ const AssessmentPage = () => {
         </div>
 
       </div>
-      {/* personal info */}
+
       <div className="mt-48">
         <div className="max-w-5xl mx-auto">
-          {/* personal info form fields */}
-          <ScrollAnimate delay={0.3}><div className="mb-18"><h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500 mb-8">Personal Info</h2>
-          <PersonalInfo /></div></ScrollAnimate>
-
-          {/* usage info form fields */}
-          <ScrollAnimate delay={0.3}><div className="mb-18"><h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500 mb-8">Usage Info</h2>
-          <UsageInfo /></div></ScrollAnimate>
-
-          {/* next button */}
-          <div className="flex justify-end"><Button className=" bg-indigo-500/70 text-white hover:bg-indigo-600/70 px-6 py-5 text-md font-semibold">Next</Button></div>
+          {/* step-1 : personal and uage info */}
+          {step === 1 && <PersonalAndUsageInfo next={() => goToStep(2)} />}
+          {/* step2 : mental health related questions */}
+          {step === 2 && <MentalHealthQuestions back={() => goToStep(1)} />}
         </div>
+
       </div>
     </div>
   );

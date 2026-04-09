@@ -2,8 +2,9 @@
 import { getQuestions } from "@/api/getQuestions";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { questionOptions } from "./questionOptions";
 import { Button } from "@/components/ui/button";
+import { questionOptions } from "./components/questionOptions";
+import MentalHealthQuestionsSkeleton from "./components/MentalHealthQuestionsSkeleton";
 
 interface Question {
   id: string;
@@ -25,7 +26,7 @@ const MentalHealthQuestions = ({ back, onFinish, }: MentalHealthQuestionsPros) =
 
   const allAnswered = questions && questions.length > 0 && questions.every((q) => answers[q.id]);
 
-  if (isLoading) return <p>loading...</p>;
+  if (isLoading) return <MentalHealthQuestionsSkeleton />;
   if (isError) return <p>error....</p>;
   return (
     <div className="flex flex-col gap-8">

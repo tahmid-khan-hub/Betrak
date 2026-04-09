@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import Navbar from "./SharedComponents/Navbar/Navbar";
 import Footer from "./SharedComponents/Footer/Footer";
 import QueryProvider from "./QueryProvider";
+import ProviderSession from "./ProviderSession";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -43,9 +44,11 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <QueryProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <ProviderSession>
+            <Navbar />
+              {children}
+            <Footer />
+          </ProviderSession>
         </QueryProvider>
       </body>
     </html>

@@ -46,7 +46,7 @@ const PersonalAndUsageInfo = ({ next }: { next: () => void; }) => {
       {/* next button */}
       <div className="flex justify-end">
         <Button onClick={next} disabled={!allFilled}
-         className=" bg-indigo-500/70 text-white hover:bg-indigo-600/70 px-6 py-5 text-md font-semibold">
+         className=" bg-indigo-500/70 text-white hover:bg-indigo-600/70 px-6 py-5 ml-4 text-md font-semibold">
           Next
         </Button>
       </div>

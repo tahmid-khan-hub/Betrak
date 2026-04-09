@@ -24,7 +24,7 @@ const UsageInfo = ({ formData, onChange }: UsageInfoProps) => {
                 <label className="text-sm font-medium text-gray-300">
                     Most Used Platform
                 </label>
-                <Dropdown name="most_used_platform" options={platforms} placeholder="Select a platform" />
+                <Dropdown name="most_used_platform" options={platforms} placeholder="Select a platform" onChange={(value) => onChange("most_used_platform", value)} />
             </div>
 
             {/* Average Daily Usage Hours */}
@@ -35,6 +35,8 @@ const UsageInfo = ({ formData, onChange }: UsageInfoProps) => {
                 <input
                     type="number"
                     name="avg_daily_usage_hours"
+                    value={formData.avg_daily_usage_hours}
+                    onChange={(e) => onChange("avg_daily_usage_hours", e.target.value)}
                     min={0}
                     max={24}
                     placeholder="Enter hours per day"
@@ -50,6 +52,8 @@ const UsageInfo = ({ formData, onChange }: UsageInfoProps) => {
                 <input
                     type="number"
                     name="sleep_hours_per_night"
+                    value={formData.sleep_hours_per_night}
+                    onChange={(e) => onChange("sleep_hours_per_night", e.target.value)}
                     min={0}
                     max={24}
                     placeholder="Enter hours of sleep"

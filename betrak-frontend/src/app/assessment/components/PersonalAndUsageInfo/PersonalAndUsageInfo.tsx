@@ -11,7 +11,8 @@ const PersonalAndUsageInfo = ({ next }: { next: () => void; }) => {
   const [formData, setFormData] = useState<FormData>(defaultFormData);
   const allFilled = Object.values(formData).every((val) => val !== "");
 
-  const handleChange = (name: string, value: string) => {
+  // keyof - TypeScript protecting from accidentally passing a wrong field name that doesn't exist in form
+  const handleChange = (name: keyof FormData, value: string) => {
     setFormData((prev) => ({
       ...prev,
       [name]: value,

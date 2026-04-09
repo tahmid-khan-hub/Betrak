@@ -3,8 +3,14 @@ import ScrollAnimate from "@/app/hooks/ScrollAnimate";
 import PersonalInfo from "./components/PersonalInfo";
 import UsageInfo from "./components/UsageInfo";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { defaultFormData } from "./components/formDefaults";
+import { FormData } from "../../../../../types/FormData";
 
 const PersonalAndUsageInfo = ({ next }: { next: () => void; }) => {
+  const [formData, setFormData] = useState<FormData>(defaultFormData);
+  const allFilled = Object.values(formData).every((val) => val !== "");
+
   return (
     <div>
       <div>
@@ -31,7 +37,8 @@ const PersonalAndUsageInfo = ({ next }: { next: () => void; }) => {
 
       {/* next button */}
       <div className="flex justify-end">
-        <Button onClick={next} className=" bg-indigo-500/70 text-white hover:bg-indigo-600/70 px-6 py-5 text-md font-semibold">
+        <Button onClick={next} disabled={!allFilled}
+         className=" bg-indigo-500/70 text-white hover:bg-indigo-600/70 px-6 py-5 text-md font-semibold">
           Next
         </Button>
       </div>

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { questionOptions } from "./components/questionOptions";
 import MentalHealthQuestionsSkeleton from "./components/MentalHealthQuestionsSkeleton";
+import ErrorState from "./components/ErrorState"
 
 interface Question {
   id: string;
@@ -19,7 +20,7 @@ interface MentalHealthQuestionsPros {
 const MentalHealthQuestions = ({ back, onFinish, }: MentalHealthQuestionsPros) => {
   const [answers, setAnswers] = useState<Record<string, string>>({});
 
-  const { data: questions, isLoading, isError, } = useQuery<Question[]>({
+  const { data: questions, isLoading, isError, refetch } = useQuery<Question[]>({
     queryKey: ["questions"],
     queryFn: getQuestions,
   });
@@ -27,7 +28,7 @@ const MentalHealthQuestions = ({ back, onFinish, }: MentalHealthQuestionsPros) =
   const allAnswered = questions && questions.length > 0 && questions.every((q) => answers[q.id]);
 
   if (isLoading) return <MentalHealthQuestionsSkeleton />;
-  if (isError) return <p>error....</p>;
+  if (isError) return <ErrorState retry={refetch} />;
   return (
     <div className="flex flex-col gap-8">
       {questions?.map((q, i) => (

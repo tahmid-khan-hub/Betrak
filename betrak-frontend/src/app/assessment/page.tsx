@@ -37,7 +37,7 @@ const AssessmentPage = () => {
           {/* step-1 : personal and uage info */}
           {step === 1 && <PersonalAndUsageInfo next={() => goToStep(2)} />}
           {/* step2 : mental health related questions */}
-          {step === 2 && <MentalHealthQuestions back={() => goToStep(1)} />}
+          {step === 2 && <MentalHealthQuestions back={() => goToStep(1)} onFinish={() => alert("Finished!")} />}
         </div>
 
       </div>

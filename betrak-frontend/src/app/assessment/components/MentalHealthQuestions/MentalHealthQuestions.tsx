@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { questionOptions } from "./components/questionOptions";
 import MentalHealthQuestionsSkeleton from "./components/MentalHealthQuestionsSkeleton";
 import ErrorState from "./components/ErrorState"
+import ScrollAnimate from "@/app/hooks/ScrollAnimate";
 
 interface Question {
   id: string;
@@ -31,6 +32,13 @@ const MentalHealthQuestions = ({ back, onFinish, }: MentalHealthQuestionsPros) =
   if (isError) return <ErrorState retry={refetch} />;
   return (
     <div className="flex flex-col gap-8">
+      <ScrollAnimate delay={0.3}>
+          <div>
+            <h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500 mb-8">
+              Reflect On Yourself
+            </h2>
+          </div>
+        </ScrollAnimate>
       {questions?.map((q, i) => (
         <div key={q.id} className="flex flex-col gap-3">
           {/* show question */}
@@ -65,7 +73,7 @@ const MentalHealthQuestions = ({ back, onFinish, }: MentalHealthQuestionsPros) =
           </div>
         </div>
       ))}
-      <div className="flex gap-3 pt-2">
+      <div className="flex justify-end gap-3 pt-2">
         <Button
           type="button"
           onClick={back}

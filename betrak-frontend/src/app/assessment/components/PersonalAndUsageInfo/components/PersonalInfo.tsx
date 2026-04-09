@@ -1,8 +1,13 @@
 "use client";
-
 import Dropdown from "@/app/hooks/Dropdown";
+import { FormData } from "@/types/FormData";
 
-const PersonalInfo = () => {
+interface PersonalInfoPros {
+  formData: FormData;
+  onChange: (name: keyof FormData, value: string) => void;
+}
+
+const PersonalInfo = ({ formData, onChange }: PersonalInfoPros) => {
   return (
     <form className="flex flex-col gap-5">
       {/* Age */}

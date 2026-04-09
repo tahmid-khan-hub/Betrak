@@ -5,11 +5,18 @@ import UsageInfo from "./components/UsageInfo";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { defaultFormData } from "./components/formDefaults";
-import { FormData } from "../../../../../types/FormData";
+import { FormData } from "@/types/FormData";
 
 const PersonalAndUsageInfo = ({ next }: { next: () => void; }) => {
   const [formData, setFormData] = useState<FormData>(defaultFormData);
   const allFilled = Object.values(formData).every((val) => val !== "");
+
+  const handleChange = (name: string, value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
 
   return (
     <div>
@@ -20,7 +27,7 @@ const PersonalAndUsageInfo = ({ next }: { next: () => void; }) => {
             <h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500 mb-8">
               Personal Info
             </h2>
-            <PersonalInfo />
+            <PersonalInfo formData={formData} onChange={handleChange} />
           </div>
         </ScrollAnimate>
 
@@ -30,7 +37,7 @@ const PersonalAndUsageInfo = ({ next }: { next: () => void; }) => {
             <h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500 mb-8">
               Usage Info
             </h2>
-            <UsageInfo />
+            <UsageInfo formData={formData} onChange={handleChange} />
           </div>
         </ScrollAnimate>
       </div>

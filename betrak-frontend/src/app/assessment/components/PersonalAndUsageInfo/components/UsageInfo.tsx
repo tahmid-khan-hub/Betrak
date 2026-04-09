@@ -1,5 +1,10 @@
 "use client"
 import Dropdown from "@/app/hooks/Dropdown";
+import { FormData } from "@/types/FormData";
+interface UsageInfoProps {
+  formData: FormData;
+  onChange: (name: keyof FormData, value: string) => void;
+}
 
 const platforms = [
     "Instagram",
@@ -10,7 +15,7 @@ const platforms = [
     "Snapchat",
 ];
 
-const UsageInfo = () => {
+const UsageInfo = ({ formData, onChange }: UsageInfoProps) => {
     return (
         <form className="flex flex-col gap-5">
 

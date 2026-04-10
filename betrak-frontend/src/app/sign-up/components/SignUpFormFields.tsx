@@ -19,20 +19,20 @@ const SignUpFormFields = ({callbackUrl} : SignUpFormProps) => {
             type="text"
             name="name"
             placeholder="Enter your Name"
-            className="w-full p-3 mb-6 bg-gray-800 rounded-md"
+            className="w-full p-3 mb-6 bg-gray-800 border border-gray-800 hover:border-indigo-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
             required
             />
             <input
             type="text"
             name="image"
             placeholder="Enter your PhotoURL - (PhotoURL is optional)"
-            className="w-full p-3 mb-6 bg-gray-800 rounded-md"
+            className="w-full p-3 mb-6 bg-gray-800 border border-gray-800 hover:border-indigo-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
             />
             <input
             type="email"
             name="email"
             placeholder="Enter your email"
-            className="w-full p-3 mb-6 bg-gray-800 rounded-md"
+            className="w-full p-3 mb-6 bg-gray-800 border border-gray-800 hover:border-indigo-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
             required
             />
             <div className="relative">
@@ -40,7 +40,7 @@ const SignUpFormFields = ({callbackUrl} : SignUpFormProps) => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Enter your password"
-                className="w-full p-3 mb-2 bg-gray-800 rounded-md pr-10"
+                className="w-full p-3 mb-2 bg-gray-800 border border-gray-800 hover:border-indigo-500 rounded-md pr-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                 required
             />
             <span

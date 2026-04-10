@@ -11,27 +11,24 @@ const SignUpPageClientSide = () => {
   const callbackUrl = searchParams.get("callbackUrl") || "/"; // return to the last visited page or home page
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="w-full min-h-screen flex items-center justify-center px-2 overflow-x-hidden bg-[#0c121f]">
       <motion.div
-        initial={{ opacity: 0, x: 50 }}
+        initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
-        className="min-h-screen flex w-full items-center justify-center p-8 mb-11"
+        className="bg-gray-900 w-full max-w-xl p-1 rounded-md mt-16"
       >
-        <div className="bg-gray-900 w-full max-w-md p-8 space-y-6 rounded-md mt-16">
+        <div className="bg-gray-900 w-full max-w-xl p-8 space-y-6 rounded-md mt-6">
           {/* Title */}
           <h2 className="jakartaSans text-3xl font-bold text-center pt-4 text-gray-50">
             Create Your Account
           </h2>
-          <p className="text-center text-sm text-gray-50 mb-12">
+          <p className="text-center text-sm text-gray-400 -mt-2 mb-12">
             Sign up to track your social media habits and get personalized insights
           </p>
           
           {/* Form */}
           <SignUpFormFields callbackUrl={callbackUrl} />
-
-          {/* Divider */}
-
 
           {/* Google Login */}
           <Button

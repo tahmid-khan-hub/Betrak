@@ -30,6 +30,13 @@ const SignInPageClientSide = () => {
           {/* Form */}
           <SignInFormFields callbackUrl={callbackUrl} />
 
+          {/* Divider */}
+          <div className="flex items-center">
+            <div className="flex-1 h-px bg-gray-700" />
+            <span className="text-gray-400 text-sm">or continue with</span>
+            <div className="flex-1 h-px bg-gray-700" />
+          </div>
+
           {/* Google Login */}
           <Button
             onClick={() => signIn("google", { callbackUrl })}

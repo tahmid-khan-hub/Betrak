@@ -1,5 +1,4 @@
 "use client";
-import { getQuestions } from "@/api/getQuestions";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -7,6 +6,7 @@ import { questionOptions } from "./components/questionOptions";
 import MentalHealthQuestionsSkeleton from "./components/MentalHealthQuestionsSkeleton";
 import ErrorState from "./components/ErrorState"
 import ScrollAnimate from "@/app/hooks/ScrollAnimate";
+import { getQuestions } from "@/app/api/getQuestions";
 
 interface Question {
   id: string;

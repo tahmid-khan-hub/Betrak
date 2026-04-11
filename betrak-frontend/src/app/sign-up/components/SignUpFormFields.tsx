@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { UserSignUp } from "@/lib/auth/UserSignUP";
+import { signIn } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
@@ -6,11 +8,39 @@ interface SignUpFormProps { callbackUrl: string; }
 
 const SignUpFormFields = ({callbackUrl} : SignUpFormProps) => {
     const [showPassword, setShowPassword] = useState(false);
-
     const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[\W_]).{8,}$/; // password pattern
 
     const handleSubmit = async(e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+
+        const name = formData.get("name") as string;
+        const image = formData.get("image") as string;
+        const email = formData.get("email") as string;
+        const password = formData.get("password") as string;
+        // if password does not match with given pattern, show error alert
+        if (!passwordPattern.test(password)) {
+            alert("Password must be at least 8 characters and include: 1 uppercase letter, 1 lowercase letter and 1 special character." );
+            return;
+        }
+        const res = await UserSignUp({ name, email, password, image }) // push user to db
+
+        if(res.success){
+            // credentials sign up
+            const signUp = await signIn("credentials", {
+                redirect: false, email, password, callbackUrl
+            })
+            if (signUp?.ok) {
+                alert("Successfully Sign-up!");
+                window.location.href = signUp.url || callbackUrl; // redirect user
+            } else {
+                alert("Registered but fail to login!");
+            }
+            form.reset();
+        } else {
+            alert("User already exist or Sign-up failed!")
+        }
     }
     return (
     <div>

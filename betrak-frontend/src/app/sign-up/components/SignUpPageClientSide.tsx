@@ -27,16 +27,6 @@ const SignUpPageClientSide = () => {
           <p className="text-center text-sm text-gray-400 -mt-2 mb-12">
             Sign up to track your social media habits and get personalized insights
           </p>
-          
-          {/* Form */}
-          <SignUpFormFields callbackUrl={callbackUrl} />
-
-          {/* Divider */}
-          <div className="flex items-center">
-            <div className="flex-1 h-px bg-gray-700" />
-            <span className="text-gray-400 text-sm">or continue with</span>
-            <div className="flex-1 h-px bg-gray-700" />
-          </div>
 
           {/* Google Login */}
           <Button
@@ -48,11 +38,21 @@ const SignUpPageClientSide = () => {
             Sign up with Google
           </Button>
 
+          {/* Divider */}
+          <div className="flex items-center gap-3">
+            <div className="flex-1 h-px bg-gray-700" />
+            <span className="text-gray-400 ">or</span>
+            <div className="flex-1 h-px bg-gray-700" />
+          </div>
+          
+          {/* Form */}
+          <SignUpFormFields callbackUrl={callbackUrl} />
+
           {/* link of sign in page */}
-          <p className="mb-4 mt-1 text-gray-50">
-            Already have an account? Please Sign-in{" "}
+          <p className="mb-4 mt-8 text-gray-50 text-center">
+            Already have an account? {" "}
             <Link className="text-indigo-500 hover:underline" href={"/sign-in"}>
-              here
+              Sign-in
             </Link>
           </p>
         </div>

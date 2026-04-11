@@ -56,8 +56,8 @@ export const authOptions: NextAuthOptions = {
             // if new user then insert the new user data in db
             if(userExists.rows.length === 0){
                 await pool.query(
-                    "INSERT INTO users (name, email, image, role) VALUES ($1, $2, $3)",
-                    [user.name, user.email, user.image]
+                    "INSERT INTO users (name, email, image, password) VALUES ($1, $2, $3, $4)",
+                    [user.name, user.email, user.image, null]
                 )
             }
             return true;

@@ -7,7 +7,7 @@ interface SignUpData {
 
 export async function UserSignUp({ name, email, password, image }: SignUpData): Promise<{ success: boolean }> {
     try {
-        const res = await fetch("/api/auth/register", {
+        const res = await fetch("/api/auth/sign-up", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, email, password, image }),

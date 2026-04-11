@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { UserSignIN } from "@/lib/auth/UserSignIN";
 import { signIn } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
@@ -18,20 +17,15 @@ const SignInFormFields = ({ callbackUrl }: SignInFormProps) => {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
-    const res = await UserSignIN({ email, password });
-    if (res.success) {
-      const signin = await signIn("credentials", {
-        redirect: false, email, password, callbackUrl,
-      });
+    const signin = await signIn("credentials", {
+      redirect: false, email, password, callbackUrl,
+    });
       if (signin?.ok) {
         alert("Welcome to Betrak");
         window.location.href = signin.url || callbackUrl;
       } else {
         alert("Failed to Sign In!");
       }
-    } else {
-      alert("Failed to Sign In!");
-    }
   };
   return (
     <div>

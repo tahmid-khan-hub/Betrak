@@ -1,14 +1,41 @@
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { UserSignIN } from "@/lib/auth/UserSignIN";
+import { signIn } from "next-auth/react";
+import { FormEvent, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
-interface SignInFormProps { callbackUrl: string; }
+interface SignInFormProps {
+  callbackUrl: string;
+}
 
 const SignInFormFields = ({ callbackUrl }: SignInFormProps) => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    const res = await UserSignIN({ email, password });
+    if (res.success) {
+      const signin = await signIn("credentials", {
+        redirect: false, email, password, callbackUrl,
+      });
+      if (signin?.ok) {
+        alert("Welcome to Betrak");
+        window.location.href = signin.url || callbackUrl;
+      } else {
+        alert("Failed to Sign In!");
+      }
+    } else {
+      alert("Failed to Sign In!");
+    }
+  };
   return (
     <div>
-      <form className="space-y-4 text-gray-50">
+      <form onSubmit={handleSubmit} className="space-y-4 text-gray-50">
         <input
           type="email"
           name="email"

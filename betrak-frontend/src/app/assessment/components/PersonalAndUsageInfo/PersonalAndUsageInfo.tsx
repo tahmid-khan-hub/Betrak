@@ -3,21 +3,16 @@ import ScrollAnimate from "@/app/hooks/ScrollAnimate";
 import PersonalInfo from "./components/PersonalInfo";
 import UsageInfo from "./components/UsageInfo";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { defaultFormData } from "./components/formDefaults";
 import { FormData } from "@/types/FormData";
 
-const PersonalAndUsageInfo = ({ next }: { next: () => void; }) => {
-  const [formData, setFormData] = useState<FormData>(defaultFormData);
-  const allFilled = Object.values(formData).every((val) => val !== "");
+interface PersonalAndUsageInfoProps {
+  formData: FormData;
+  onChange: (name: keyof FormData, value: string) => void;
+  next: () => void;
+}
 
-  // keyof - TypeScript protecting from accidentally passing a wrong field name that doesn't exist in form
-  const handleChange = (name: keyof FormData, value: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
+const PersonalAndUsageInfo = ({ formData, onChange, next } : PersonalAndUsageInfoProps) => {
+  const allFilled = Object.values(formData).every((val) => val !== "");
 
   return (
     <div>
@@ -28,7 +23,7 @@ const PersonalAndUsageInfo = ({ next }: { next: () => void; }) => {
             <h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500 mb-8">
               Personal Info
             </h2>
-            <PersonalInfo formData={formData} onChange={handleChange} />
+            <PersonalInfo formData={formData} onChange={onChange} />
           </div>
         </ScrollAnimate>
 
@@ -38,7 +33,7 @@ const PersonalAndUsageInfo = ({ next }: { next: () => void; }) => {
             <h2 className="jakartaSans text-2xl text-gray-50 font-bold underline underline-offset-8 decoration-indigo-500 mb-8">
               Usage Info
             </h2>
-            <UsageInfo formData={formData} onChange={handleChange} />
+            <UsageInfo formData={formData} onChange={onChange} />
           </div>
         </ScrollAnimate>
       </div>

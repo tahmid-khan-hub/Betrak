@@ -16,9 +16,10 @@ interface Question {
 interface MentalHealthQuestionsPros {
   back: () => void;
   onFinish: (answers: Record<string, string>) => void;
+  isSubmitting?: boolean;
 }
 
-const MentalHealthQuestions = ({ back, onFinish, }: MentalHealthQuestionsPros) => {
+const MentalHealthQuestions = ({ back, onFinish, isSubmitting }: MentalHealthQuestionsPros) => {
   const [answers, setAnswers] = useState<Record<string, string>>({});
 
   const { data: questions, isLoading, isError, refetch } = useQuery<Question[]>({
@@ -74,21 +75,13 @@ const MentalHealthQuestions = ({ back, onFinish, }: MentalHealthQuestionsPros) =
         </div>
       ))}
       <div className="flex justify-end gap-3 pt-2">
-        <Button
-          type="button"
-          onClick={back}
+        <Button type="button" onClick={back}
           className="rounded-xl border border-white/10 bg-white/5 px-8 py-5 text-sm font-medium text-gray-300 transition hover:bg-white/10"
-        >
-          Back
-        </Button>
-        <Button
-          type="button"
-          onClick={() => allAnswered && onFinish(answers)}
-          disabled={!allAnswered}
+        > Back </Button>
+        <Button type="button" onClick={() => allAnswered && onFinish(answers)}
+          disabled={!allAnswered || isSubmitting}
           className="flex-1 rounded-xl bg-indigo-600 px-8 py-5 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          Finish
-        </Button>
+        > {isSubmitting ? "Analyzing..." : "Finish"} </Button>
       </div>
     </div>
   );

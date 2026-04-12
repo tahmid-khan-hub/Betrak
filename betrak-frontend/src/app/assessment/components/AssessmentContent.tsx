@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import PersonalAndUsageInfo from "./PersonalAndUsageInfo/PersonalAndUsageInfo";
 import MentalHealthQuestions from "./MentalHealthQuestions/MentalHealthQuestions";
+import { submitAssessment } from "@/lib/betrakApi";
 
 const AssessmentContent = () => {
   const router = useRouter();

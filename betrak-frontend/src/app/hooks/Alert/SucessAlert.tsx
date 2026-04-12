@@ -22,10 +22,10 @@ export function SuccessAlert({ title, description, onClose, } :
       transition={{ duration: 0.3 }}
       className="fixed bottom-6 right-6 z-50"
     >
-      <Alert className="w-80 bg-black border-gray-700">
-        <CheckCircle2Icon className="bg-primary rounded-full mt-0.5" />
-        <AlertTitle className="text-white">{title}</AlertTitle>
-        <AlertDescription className="text-gray-500">
+      <Alert className="w-80 bg-gray-900 border-gray-700">
+        <CheckCircle2Icon className="bg-green-500 rounded-full mt-0.5" />
+        <AlertTitle className="text-green-500 mb-1">{title}</AlertTitle>
+        <AlertDescription className="text-green-500">
           {description}
         </AlertDescription>
       </Alert>

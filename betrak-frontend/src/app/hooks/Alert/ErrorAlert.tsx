@@ -22,7 +22,7 @@ export function ErrorAlert({ title, description, onClose, } :
       transition={{ duration: 0.3 }}
       className="fixed bottom-6 right-6 z-50"
     >
-        <Alert variant="destructive" className="w-80 bg-black border-gray-700">
+        <Alert variant="destructive" className="w-80 bg-gray-900 border-gray-700">
             <AlertCircleIcon className=" rounded-full mt-0.5"/>
             <AlertTitle>{title}</AlertTitle>
             <AlertDescription>

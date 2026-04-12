@@ -7,6 +7,7 @@ class MentalHealthAnswers(BaseModel):
     answer_3: Literal["never", "rarely", "often", "always"]
 
 class UserInput(BaseModel):
+    user_id: Optional[str] = None
     age: int = Field(..., ge=10, le=100)
     gender: Literal["Male", "Female"]
     country: str = Field(..., min_length=2, max_length=100)

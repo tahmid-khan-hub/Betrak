@@ -7,6 +7,9 @@ class UserPrediction(Base):
 
     id = Column(Integer, primary_key=True, index=True)
 
+    # user id
+    user_id = Column(String, nullable=False)
+    
     # user info
     age = Column(Integer, nullable=False)
     gender = Column(String, nullable=False)

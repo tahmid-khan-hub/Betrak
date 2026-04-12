@@ -34,6 +34,7 @@ def predict(user_input: UserInput, db: Session = Depends(get_db)):
 
     # 3. save to postgreSQL
     record = UserPrediction(
+        user_id=user_input.user_id,
         age=user_input.age,
         gender=user_input.gender,
         country=user_input.country,

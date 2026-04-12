@@ -24,9 +24,9 @@ export async function submitAssessment(
     most_used_platform: formData.most_used_platform,
     sleep_hours_per_night: Number(formData.sleep_hours_per_night),
     mental_health_answers: {
-      answer_1: answers["q1"],
-      answer_2: answers["q2"],
-      answer_3: answers["q3"],
+      answer_1: answers["1"],
+      answer_2: answers["2"],
+      answer_3: answers["3"],
     },
   };
 

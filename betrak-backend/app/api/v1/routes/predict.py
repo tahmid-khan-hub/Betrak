@@ -16,9 +16,9 @@ def predict(user_input: UserInput, db: Session = Depends(get_db)):
 
     # 1. calculate mental health score from 3 answers
     mental_health_score = calculate_mental_health_score(
-        answer_1=user_input.mental_health_answers.answer_1,
-        answer_2=user_input.mental_health_answers.answer_2,
-        answer_3=user_input.mental_health_answers.answer_3
+        answer1=user_input.mental_health_answers.answer_1,
+        answer2=user_input.mental_health_answers.answer_2,
+        answer3=user_input.mental_health_answers.answer_3
     )
 
     # 2. run ml prediction

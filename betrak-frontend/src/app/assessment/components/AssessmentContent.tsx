@@ -2,7 +2,7 @@
 import ScrollAnimate from "@/app/hooks/ScrollAnimate";
 import { FormData } from "@/types/FormData";
 import { defaultFormData } from "@/types/formDefaults";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import PersonalAndUsageInfo from "./PersonalAndUsageInfo/PersonalAndUsageInfo";
 import MentalHealthQuestions from "./MentalHealthQuestions/MentalHealthQuestions";
@@ -10,15 +10,9 @@ import { submitAssessment } from "@/lib/betrakApi";
 
 const AssessmentContent = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const step = Number(searchParams.get("step")) || 1;
-
+  const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>(defaultFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const goToStep = (stepNumber: number) => {
-    router.push(`/assessment?step=${stepNumber}`);
-  };
 
   // keyof - TypeScript protecting from accidentally passing a wrong field name that doesn't exist in form
   const handleChange = (name: keyof FormData, value: string) => {
@@ -68,11 +62,11 @@ const AssessmentContent = () => {
           {/* step-1 : personal and uage info */}
           {step === 1 && <PersonalAndUsageInfo
           formData={formData} onChange={handleChange}
-          next={() => goToStep(2)} />}
+          next={() => setStep(2)} />}
           {/* step2 : mental health related questions */}
           {step === 2 && (
             <MentalHealthQuestions
-              back={() => goToStep(1)}
+              back={() => setStep(1)}
               onFinish={handleFinish} isSubmitting={isSubmitting} /> )}
         </div>
       </div>

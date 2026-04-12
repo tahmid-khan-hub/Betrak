@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Literal
+from typing import Literal, Optional
 
 class MentalHealthAnswers(BaseModel):
     answer_1: Literal["never", "sometimes", "often", "always"]

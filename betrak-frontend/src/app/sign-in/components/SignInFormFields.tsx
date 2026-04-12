@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button";
 import { signIn } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { AnimatePresence } from "framer-motion";
+import { SuccessAlert } from "@/app/hooks/Alert/SucessAlert";
+import { ErrorAlert } from "@/app/hooks/Alert/ErrorAlert";
 
 interface SignInFormProps {
   callbackUrl: string;
@@ -9,6 +12,7 @@ interface SignInFormProps {
 
 const SignInFormFields = ({ callbackUrl }: SignInFormProps) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [alertType, setAlertType] = useState<"success" | "error" | null>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,11 +25,11 @@ const SignInFormFields = ({ callbackUrl }: SignInFormProps) => {
       redirect: false, email, password, callbackUrl,
     });
       if (signin?.ok) {
-        alert("Welcome to Betrak");
-        window.location.href = signin.url || callbackUrl;
-      } else {
-        alert("Failed to Sign In!");
-      }
+        setAlertType("success");
+        setTimeout(() => {
+          window.location.href = signin.url || callbackUrl;
+        }, 1500); // show alert for 1.5 seconds
+      } else setAlertType("error") 
   };
   return (
     <div>
@@ -53,13 +57,21 @@ const SignInFormFields = ({ callbackUrl }: SignInFormProps) => {
           </span>
         </div>
 
-        <Button
-          type="submit"
+        <Button type="submit"
           className="bg-indigo-500/70 text-white hover:bg-indigo-600/70 py-6 btn-outline rounded-lg font-semibold text-[16px] w-full mt-5"
-        >
-          Sign in
-        </Button>
+        > Sign in </Button>
       </form>
+
+      {/* alert */}
+      <AnimatePresence>
+        {alertType === "success" && 
+        ( <SuccessAlert title="Welcome Back!" description="You have successfully signed in to your Betrak account." 
+        onClose={() => setAlertType(null)} /> )}
+
+        {alertType === "error" && 
+        ( <ErrorAlert title="Sign In Failed" description="Incorrect email or password. Please try again." 
+        onClose={() => setAlertType(null)} /> )}
+      </AnimatePresence>
     </div>
   );
 };

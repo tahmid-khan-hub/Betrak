@@ -1,3 +1,4 @@
+"use client"
 import { useQuery } from "@tanstack/react-query";
 import ScrollAnimate from "../hooks/ScrollAnimate";
 import { getResultData } from "@/lib/resultData";

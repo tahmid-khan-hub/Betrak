@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import ScrollAnimate from "../hooks/ScrollAnimate";
 import { getResultData } from "@/lib/resultData";
 import AddictionLevelCard from "./components/AddictionLevelCard";
+import InputProfile from "./components/InputProfile";
 
 const ResultPage = () => {
   const { data, isLoading } = useQuery({
@@ -32,6 +33,17 @@ const ResultPage = () => {
       {/* addiction level card */}
       <div>
         <AddictionLevelCard addictionLevel={predictionResult.addiction_level} confidence={Math.round(predictionResult.confidence)} mentalHealthScore={predictionResult.mental_health_score} />
+      </div>
+      {/* input profile */}
+      <div>
+        <InputProfile
+        age={predictionResult.age}
+        gender={predictionResult.gender}
+        country={predictionResult.country}
+        most_used_platform={predictionResult.most_used_platform}
+        avg_daily_usage_hours={predictionResult.avg_daily_usage_hours}
+        sleep_hours_per_night={predictionResult.sleep_hours_per_night}
+        />
       </div>
     </div>
   );

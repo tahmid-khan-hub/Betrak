@@ -1,6 +1,12 @@
+import { useQuery } from "@tanstack/react-query";
 import ScrollAnimate from "../hooks/ScrollAnimate";
+import { getResultData } from "@/lib/resultData";
 
 const ResultPage = () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["result"],
+    queryFn: getResultData,
+  })
   return (
     <div className="min-h-screen">
       <div className="mb-12 mt-24 text-center">

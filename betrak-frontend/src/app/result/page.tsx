@@ -12,7 +12,7 @@ const ResultPage = () => {
   if(isLoading) return <p>loading....</p>
   const predictionResult = data?.data.data;
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <div className="mb-12 mt-24 text-center">
         <ScrollAnimate delay={0.2}>
           <h1 className="jakartaSans text-4xl font-bold text-gray-50">

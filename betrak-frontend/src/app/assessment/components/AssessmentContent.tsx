@@ -7,12 +7,16 @@ import { useState } from "react";
 import PersonalAndUsageInfo from "./PersonalAndUsageInfo/PersonalAndUsageInfo";
 import MentalHealthQuestions from "./MentalHealthQuestions/MentalHealthQuestions";
 import { submitAssessment } from "@/lib/betrakApi";
+import { AnimatePresence } from "framer-motion";
+import { SuccessAlert } from "@/app/hooks/Alert/SucessAlert";
+import { ErrorAlert } from "@/app/hooks/Alert/ErrorAlert";
 
 const AssessmentContent = () => {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>(defaultFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [alertType, setAlertType] = useState<"success" | "error" | null>(null)
 
   // keyof - TypeScript protecting from accidentally passing a wrong field name that doesn't exist in form
   const handleChange = (name: keyof FormData, value: string) => {
@@ -26,11 +30,11 @@ const AssessmentContent = () => {
     setIsSubmitting(true);
     try {
       await submitAssessment(formData, answers);
-      alert("submission done");
+      setAlertType("success")
       router.push("/result");
     } catch (error) {
       console.error("prediction failed", error);
-      alert("Something went wrong. Please try again.");
+      setAlertType("error")
     } finally {
       setIsSubmitting(false);
     }
@@ -70,6 +74,16 @@ const AssessmentContent = () => {
               onFinish={handleFinish} isSubmitting={isSubmitting} /> )}
         </div>
       </div>
+
+      {/* alert*/}
+      <AnimatePresence>
+        {alertType === "success" && 
+        ( <SuccessAlert title="Assessment Submitted Successfully" description="We've analyzed your digital habits and your personalized report is ready." 
+        onClose={() => setAlertType(null)} /> )}
+        {alertType === "error" && 
+        ( <ErrorAlert title="Submission Failed" description="Something went wrong. Please try again." 
+        onClose={() => setAlertType(null)} /> )}
+      </AnimatePresence>
     </div>
   );
 };

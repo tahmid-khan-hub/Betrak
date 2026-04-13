@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from datetime import datetime
 
@@ -11,6 +11,7 @@ from app.services.mental_health_service import calculate_mental_health_score
 
 router = APIRouter()
 
+# post the predictions to db
 @router.post("/predict", response_model=PredictionResponse)
 def predict(user_input: UserInput, db: Session = Depends(get_db)):
 
@@ -57,7 +58,32 @@ def predict(user_input: UserInput, db: Session = Depends(get_db)):
         created_at=record.created_at
     )
 
+# get the 3 mental health realted questions
 @router.get("/questions")
 def get_mental_health_questions():
     from app.services.mental_health_service import get_questions
     return {"questions": get_questions()}
+
+@router.get("/predict/latest")
+def get_latest_prediction(user_id: str, db: Session = Depends(get_db)):
+    # database query to get a specific user result and return it to frontend
+    record = (
+        db.query(UserPrediction).filter(UserPrediction.user_id == user_id).order_by(UserPrediction.created_at.desc()).first()
+    )
+
+    # if no record found then...
+    if not record:
+        raise HTTPException(status_code=404, detail="No prediction result found for this user.")
+
+    # return the data
+    return {
+        "addiction_level": record.addiction_level,
+        "mental_health_score": record.mental_health_score,
+        "age": record.age,
+        "gender": record.gender,
+        "country": record.country,
+        "avg_daily_usage_hours": record.avg_daily_usage_hours,
+        "most_used_platform": record.most_used_platform,
+        "sleep_hours_per_night": record.sleep_hours_per_night,
+        "created_at": record.created_at,
+    }

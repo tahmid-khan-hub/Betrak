@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, DateTime
+from sqlalchemy import Column, Integer, String, Float, DateTime, JSON
 from sqlalchemy.sql import func
 from app.core.database import Base
 
@@ -22,6 +22,10 @@ class UserPrediction(Base):
 
     # mental health
     mental_health_score = Column(Float, nullable=False)
+
+    # sugesstions and confidence
+    suggestions = Column(JSON, nullable=False)
+    confidence = Column(Float, nullable=False)
 
     # addiction level
     addiction_level = Column(String, nullable=False)

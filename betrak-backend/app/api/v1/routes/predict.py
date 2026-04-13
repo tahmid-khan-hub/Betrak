@@ -43,7 +43,9 @@ def predict(user_input: UserInput, db: Session = Depends(get_db)):
         most_used_platform=user_input.most_used_platform,
         sleep_hours_per_night=user_input.sleep_hours_per_night,
         mental_health_score=mental_health_score,
-        addiction_level=result["addiction_level"]
+        addiction_level=result["addiction_level"],
+        confidence=result["confidence"],
+        suggestions=result["suggestions"],
     )
     db.add(record)
     db.commit()
@@ -85,5 +87,7 @@ def get_latest_prediction(user_id: str, db: Session = Depends(get_db)):
         "avg_daily_usage_hours": record.avg_daily_usage_hours,
         "most_used_platform": record.most_used_platform,
         "sleep_hours_per_night": record.sleep_hours_per_night,
+        "suggestions": record.suggestions,
+        "confidence": record.confidence,
         "created_at": record.created_at,
     }

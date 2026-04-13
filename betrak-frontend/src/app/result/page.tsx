@@ -2,12 +2,15 @@
 import { useQuery } from "@tanstack/react-query";
 import ScrollAnimate from "../hooks/ScrollAnimate";
 import { getResultData } from "@/lib/resultData";
+import AddictionLevelCard from "./components/AddictionLevelCard";
 
 const ResultPage = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["result"],
     queryFn: getResultData,
   })
+  if(isLoading) return <p>loading....</p>
+  const predictionResult = data?.data.data;
   return (
     <div className="min-h-screen">
       <div className="mb-12 mt-24 text-center">
@@ -25,6 +28,10 @@ const ResultPage = () => {
             Review your results below and explore personalized suggestions to help you build healthier digital habits.
           </p>
         </ScrollAnimate>
+      </div>
+      {/* addiction level card */}
+      <div>
+        <AddictionLevelCard addictionLevel={predictionResult.addiction_level} confidence={Math.round(predictionResult.confidence)} mentalHealthScore={predictionResult.mental_health_score} />
       </div>
     </div>
   );

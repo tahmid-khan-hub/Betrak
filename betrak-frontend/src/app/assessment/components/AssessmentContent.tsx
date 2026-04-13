@@ -17,6 +17,7 @@ const AssessmentContent = () => {
   const [formData, setFormData] = useState<FormData>(defaultFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [alertType, setAlertType] = useState<"success" | "error" | null>(null)
+  const [errorMsg, setErrorMsg] = useState("");
 
   // keyof - TypeScript protecting from accidentally passing a wrong field name that doesn't exist in form
   const handleChange = (name: keyof FormData, value: string) => {
@@ -32,9 +33,11 @@ const AssessmentContent = () => {
       await submitAssessment(formData, answers);
       setAlertType("success")
       router.push("/result");
-    } catch (error) {
-      console.error("prediction failed", error);
-      setAlertType("error")
+    } catch (error: unknown) {
+      let message = "Something went wrong. Please try again.";
+      if (error instanceof Error) message = error.message; 
+      setErrorMsg(message)
+      setAlertType("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -81,7 +84,7 @@ const AssessmentContent = () => {
         ( <SuccessAlert title="Assessment Submitted Successfully" description="We've analyzed your digital habits and your personalized report is ready." 
         onClose={() => setAlertType(null)} /> )}
         {alertType === "error" && 
-        ( <ErrorAlert title="Submission Failed" description="Something went wrong. Please try again." 
+        ( <ErrorAlert title="Submission Failed" description={errorMsg}
         onClose={() => setAlertType(null)} /> )}
       </AnimatePresence>
     </div>

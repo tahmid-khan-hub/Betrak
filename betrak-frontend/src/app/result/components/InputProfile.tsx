@@ -14,7 +14,7 @@ interface InputProfileProps {
 const InputProfile = ({ age, gender, country, most_used_platform, avg_daily_usage_hours, sleep_hours_per_night }:InputProfileProps) => {
     return (
     <ScrollAnimate delay={0.4}>
-      <div className="mx-auto max-w-5xl rounded-2xl border border-gray-800 bg-gray-900 px-8 py-7 mt-24">
+      <div className="mx-auto max-w-4xl rounded-2xl border border-gray-800 bg-gray-900 px-8 py-7 mt-24">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:gap-0">
 
           {/* Left — title */}

@@ -42,7 +42,7 @@ export default function RootLayout({
       lang="en"
       className={cn("h-full", "antialiased", "bg-[#0c121f]", lato.variable, jakartaSans.variable, lobster.variable, "font-sans", inter.variable)}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col overflow-x-hidden">
         <QueryProvider>
           <ProviderSession>
             <Navbar />

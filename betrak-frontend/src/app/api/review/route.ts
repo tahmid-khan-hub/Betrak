@@ -24,3 +24,15 @@ export async function POST(req: NextRequest) {
     }
 }
 
+export async function GET() {
+    try {
+        const result = await pool.query( `SELECT * FROM reviews ORDER BY created_at DESC LIMIT 5` )
+
+        if (result.rows.length === 0) return NextResponse.json( { success: false, message: "No reviews found" }, { status: 404 } );
+
+        return NextResponse.json({ success: true, data: result.rows });
+    } catch (error) {
+        console.error(error);
+        return NextResponse.json({ success: false, message: "Failed to load reviews" });
+    }
+}

@@ -2,6 +2,7 @@
 import ScrollAnimate from "@/app/hooks/ScrollAnimate";
 import IntensityGauge from "./components/IntensityGauge";
 import DailyUsageChart from "./components/DailyUsageChart";
+import SleepCorrelationChart from "./components/SleepCorrelationChart";
 
 type AddictionLevel = "high" | "medium" | "low";
 
@@ -23,7 +24,7 @@ const StatsCharts = ({ addictionLevel, avgDailyUsageHours, sleepHoursPerNight }:
           />
           <div className="flex flex-col gap-4 md:w-1/2">
             <DailyUsageChart addictionLevel={addictionLevel} avgDailyUsageHours={avgDailyUsageHours} />
-            
+            <SleepCorrelationChart avgDailyUsageHours={avgDailyUsageHours} sleepHoursPerNight={sleepHoursPerNight} />
           </div>
         </div>
       </div>

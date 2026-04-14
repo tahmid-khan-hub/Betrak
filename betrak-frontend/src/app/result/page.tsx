@@ -7,14 +7,16 @@ import InputProfile from "./components/InputProfile";
 import StatsCharts from "./components/StatsCharts/StatsCharts";
 import Suggestions from "./components/Suggestions";
 import { BsShieldFillCheck } from "react-icons/bs";
+import ResultSkeleton from "./components/ResultSkeleton";
 
 const ResultPage = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["result"],
     queryFn: getResultData,
   })
-  if(isLoading) return <p>loading....</p>
+  if(isLoading) return <ResultSkeleton />;
   const predictionResult = data?.data.data;
+  
   return (
     <div className="min-h-screen ">
       <div className="mb-12 mt-24 text-center">

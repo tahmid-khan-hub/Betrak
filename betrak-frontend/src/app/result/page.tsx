@@ -6,6 +6,7 @@ import AddictionLevelCard from "./components/AddictionLevelCard";
 import InputProfile from "./components/InputProfile";
 import StatsCharts from "./components/StatsCharts/StatsCharts";
 import Suggestions from "./components/Suggestions";
+import { BsShieldFillCheck } from "react-icons/bs";
 
 const ResultPage = () => {
   const { data, isLoading } = useQuery({
@@ -17,6 +18,14 @@ const ResultPage = () => {
   return (
     <div className="min-h-screen ">
       <div className="mb-12 mt-24 text-center">
+        {/* Badge */}
+        <ScrollAnimate delay={0.08}>
+          <div className="max-w-62.5 mx-auto flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 mb-3">
+            <BsShieldFillCheck className="text-indigo-500/85 mr-2 animate-pulse" size={14} />
+            <span className="text-xs font-bold uppercase tracking-widest text-indigo-300"> Assessment Complete </span>
+          </div>
+        </ScrollAnimate>
+        {/* heading & paragraph */}
         <ScrollAnimate delay={0.2}>
           <h1 className="jakartaSans text-4xl font-bold text-gray-50">
             Your Digital{" "}

@@ -35,6 +35,11 @@ const ResultPage = () => {
       <div>
         <AddictionLevelCard addictionLevel={predictionResult.addiction_level} confidence={Math.round(predictionResult.confidence)} mentalHealthScore={predictionResult.mental_health_score} />
       </div>
+      {/* Stats charts */}
+      <div>
+        <StatsCharts addictionLevel={predictionResult.addiction_level} avgDailyUsageHours={predictionResult.avg_daily_usage_hours} 
+        sleepHoursPerNight={predictionResult.sleep_hours_per_night} confidence={predictionResult.confidence} />
+      </div>
       {/* input profile */}
       <div>
         <InputProfile
@@ -45,11 +50,6 @@ const ResultPage = () => {
         avg_daily_usage_hours={predictionResult.avg_daily_usage_hours}
         sleep_hours_per_night={predictionResult.sleep_hours_per_night}
         />
-      </div>
-      {/* Stats charts */}
-      <div>
-        <StatsCharts addictionLevel={predictionResult.addiction_level} avgDailyUsageHours={predictionResult.avg_daily_usage_hours} 
-        sleepHoursPerNight={predictionResult.sleep_hours_per_night} confidence={predictionResult.confidence} />
       </div>
     </div>
   );

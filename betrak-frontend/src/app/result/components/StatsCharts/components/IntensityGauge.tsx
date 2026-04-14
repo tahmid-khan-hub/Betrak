@@ -23,11 +23,11 @@ const IntensityGauge = ({ addictionLevel, avgDailyUsageHours } : IntensityGaugeP
     const color = getColor(addictionLevel)
 
     return (
-        <div>
+        <div className="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 md:w-1/2">
             <span className="text-xs font-semibold uppercase tracking-widest text-gray-500">Intensity Gauge</span>
 
-            <div className="flex flex-col items-center flex-1 py-4">
-                <ResponsiveContainer width="100%" height={220}>
+            <div className="flex flex-col justify-center flex-1 py-4">
+                <ResponsiveContainer width="100%" height={300}>
                     <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="100%" startAngle={180} endAngle={-180} data={[{ value: score }]} barSize={14}>
                         <RadialBar dataKey="value" cornerRadius={10} background={{ fill: "rgba(255,255,255,0.05)" }} isAnimationActive animationBegin={300} animationDuration={1200} animationEasing="ease-out">
                             <Cell fill={color} />
@@ -35,15 +35,15 @@ const IntensityGauge = ({ addictionLevel, avgDailyUsageHours } : IntensityGaugeP
                     </RadialBarChart>
                 </ResponsiveContainer>
 
-                <div className="relative -mt-35 mb-16 flex flex-col items-center">
-                    <span className="text-5xl font-bold text-gray-50">{score}</span>
+                <div className="relative -mt-46 mb-16 flex flex-col items-center">
+                    <span className="text-6xl font-bold text-gray-50">{score}</span>
                     <span className="mt-1 text-xs font-semibold uppercase tracking-widest" style={{ color }}>
                         {getLabel(score)}
                     </span>
                 </div>
             </div>
 
-            <p className="text-center text-xs text-gray-500 leading-relaxed">
+            <p className="text-center text-xs text-gray-500 leading-relaxed mt-5">
                 {addictionLevel === "high"
                 ? "Your usage falls within the top 15% of high-risk digital behaviors."
                 : addictionLevel === "medium"

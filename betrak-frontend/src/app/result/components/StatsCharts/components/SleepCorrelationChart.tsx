@@ -37,7 +37,7 @@ const SleepCorrelationChart = ({ avgDailyUsageHours, sleepHoursPerNight }: Sleep
         usage: Math.max(0, Math.round(d.usage * 10) / 10),
     }));
     return (
-        <div>
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
             <span className="text-xs font-semibold uppercase tracking-widest text-gray-500"> Sleep Impact Correlation </span>
 
             <div className="mt-4">

@@ -4,6 +4,7 @@ import ScrollAnimate from "../hooks/ScrollAnimate";
 import { getResultData } from "@/lib/resultData";
 import AddictionLevelCard from "./components/AddictionLevelCard";
 import InputProfile from "./components/InputProfile";
+import StatsCharts from "./components/StatsCharts/StatsCharts";
 
 const ResultPage = () => {
   const { data, isLoading } = useQuery({
@@ -44,6 +45,11 @@ const ResultPage = () => {
         avg_daily_usage_hours={predictionResult.avg_daily_usage_hours}
         sleep_hours_per_night={predictionResult.sleep_hours_per_night}
         />
+      </div>
+      {/* Stats charts */}
+      <div>
+        <StatsCharts addictionLevel={predictionResult.addiction_level} avgDailyUsageHours={predictionResult.avg_daily_usage_hours} 
+        sleepHoursPerNight={predictionResult.sleep_hours_per_night} confidence={predictionResult.confidence} />
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET() {
     try {
-        const result = await pool.query( `SELECT * FROM reviews ORDER BY created_at DESC LIMIT 5` )
+        const result = await pool.query( `SELECT * FROM reviews ORDER BY created_at DESC ` )
 
         if (result.rows.length === 0) return NextResponse.json( { success: false, message: "No reviews found" }, { status: 404 } );
 

@@ -8,6 +8,7 @@ import StatsCharts from "./components/StatsCharts/StatsCharts";
 import Suggestions from "./components/Suggestions";
 import { BsShieldFillCheck } from "react-icons/bs";
 import ResultSkeleton from "./components/ResultSkeleton";
+import UserReview from "./components/UserReview";
 
 const ResultPage = () => {
   const { data, isLoading } = useQuery({
@@ -16,7 +17,7 @@ const ResultPage = () => {
   })
   if(isLoading) return <ResultSkeleton />;
   const predictionResult = data?.data.data;
-  
+
   return (
     <div className="min-h-screen ">
       <div className="mb-12 mt-24 text-center">
@@ -66,6 +67,10 @@ const ResultPage = () => {
       {/* suggestions */}
       <div>
         <Suggestions suggestions={predictionResult.suggestions} />
+      </div>
+      {/* user review */}
+      <div>
+        <UserReview />
       </div>
     </div>
   );

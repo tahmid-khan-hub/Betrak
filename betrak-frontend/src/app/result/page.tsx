@@ -5,6 +5,7 @@ import { getResultData } from "@/lib/resultData";
 import AddictionLevelCard from "./components/AddictionLevelCard";
 import InputProfile from "./components/InputProfile";
 import StatsCharts from "./components/StatsCharts/StatsCharts";
+import Suggestions from "./components/Suggestions";
 
 const ResultPage = () => {
   const { data, isLoading } = useQuery({
@@ -50,6 +51,10 @@ const ResultPage = () => {
         avg_daily_usage_hours={predictionResult.avg_daily_usage_hours}
         sleep_hours_per_night={predictionResult.sleep_hours_per_night}
         />
+      </div>
+      {/* suggestions */}
+      <div>
+        <Suggestions suggestions={predictionResult.suggestions} />
       </div>
     </div>
   );

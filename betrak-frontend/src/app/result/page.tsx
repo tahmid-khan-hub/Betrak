@@ -9,6 +9,7 @@ import Suggestions from "./components/Suggestions";
 import { BsShieldFillCheck } from "react-icons/bs";
 import ResultSkeleton from "./components/ResultSkeleton";
 import UserReview from "./components/UserReview";
+import NoResultFound from "./components/NoResultFound/NoResultFound";
 
 const ResultPage = () => {
   const { data, isLoading } = useQuery({
@@ -16,6 +17,8 @@ const ResultPage = () => {
     queryFn: getResultData,
   })
   if(isLoading) return <ResultSkeleton />;
+
+  if (!data?.data.data) return <NoResultFound />; // without taking the assessment, user can not see the result
   const predictionResult = data?.data.data;
 
   return (

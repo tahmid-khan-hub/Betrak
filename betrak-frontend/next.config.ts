@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       "avatars.githubusercontent.com", // GitHub avatars
       "i.pravatar.cc", // dummy users
       "images.unsplash.com", // demo images
+      "i.postimg.cc", // postimg
     ],
   },
 };

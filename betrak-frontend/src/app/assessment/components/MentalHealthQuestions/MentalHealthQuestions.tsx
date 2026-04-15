@@ -76,7 +76,7 @@ const MentalHealthQuestions = ({ back, onFinish, isSubmitting }: MentalHealthQue
       ))}
       <div className="flex justify-end gap-3 pt-2">
         <Button type="button" onClick={back}
-          className="rounded-xl border border-white/10 bg-white/5 px-8 py-5 text-sm font-medium text-gray-300 transition hover:bg-white/10"
+          className="rounded-xl border border-indigo-500 bg-white/5 px-8 py-5 text-sm font-medium text-gray-300 transition hover:bg-white/10"
         > Back </Button>
         <Button type="button" onClick={() => allAnswered && onFinish(answers)}
           disabled={!allAnswered || isSubmitting}

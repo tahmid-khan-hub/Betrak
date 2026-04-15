@@ -5,6 +5,7 @@ import { Review } from "@/types/Review";
 import { useQuery } from "@tanstack/react-query";
 import Marquee from "react-fast-marquee";
 import ReviewCard from "./ReviewCard";
+import ReviewCardSkeleton from "./ReviewCardSkeleton";
 
 const Reviews = () => {
   const { data: allReviews, isLoading } = useQuery({
@@ -31,7 +32,7 @@ const Reviews = () => {
           <div className="flex gap-5 mr-5">
             {isLoading
               ? Array.from({ length: 5 }).map((_, i) => (
-                  <p key={i}>loading....</p>
+                  <ReviewCardSkeleton key={i} />
                 ))
               : firstRow.map((review, i) => (
                   <ReviewCard key={i} review={review} />
@@ -43,7 +44,7 @@ const Reviews = () => {
           <div className="flex">
             {isLoading
               ? Array.from({ length: 5 }).map((_, i) => (
-                  <p key={i}>loading....</p>
+                  <ReviewCardSkeleton key={i} />
                 ))
               : secondRow.map((review, i) => (
                   <ReviewCard key={i} review={review} />

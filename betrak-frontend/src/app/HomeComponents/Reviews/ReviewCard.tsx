@@ -9,7 +9,7 @@ interface ReviewCardProps {
 
 const ReviewCard = ({ review }: ReviewCardProps) => {
   return (
-    <div className="bg-gray-900 text-white p-5 rounded-2xl shadow-md border border-gray-800 w-full">
+    <div className="bg-gray-900 text-white p-5 w-72 shrink-0 rounded-2xl shadow-md border border-gray-800 ">
       {/* User Info */}
       <div className="flex items-center gap-3 mb-3">
         <Image

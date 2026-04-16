@@ -53,6 +53,9 @@ def calculate_mental_health_score(
     # Normalize from range 3–12 to range 1–10
     normalized = 1 + ((raw_score - 3) / (12 - 3)) * 9
 
+    # Invert so that better answers = higher score
+    normalized = 11 - normalized
+
     return round(normalized, 2)
 
 # Returns the 3 questions to display on the frontend.

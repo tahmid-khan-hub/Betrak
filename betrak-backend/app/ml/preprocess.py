@@ -41,7 +41,7 @@ def encode_features(df: pd.DataFrame):
 def classify_addiction(score: float) -> str:
     if score >= 7:
         return "high"
-    elif score >= 4:
+    elif score >= 5:
         return "medium"
     else:
         return "low"

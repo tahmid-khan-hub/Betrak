@@ -5,6 +5,7 @@ from pathlib import Path
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, accuracy_score
+from imblearn.over_sampling import SMOTE
 
 from app.ml.preprocess import load_and_clean_data, encode_features, get_features_and_target
 
@@ -28,6 +29,12 @@ def train():
     X_train, X_test, Y_train, Y_test = train_test_split(
         X, Y, test_size=0.2, random_state=42
     )
+
+    # The dataset has very few "low addiction" samples, which causes the model to rarely predict Low.
+    # SMOTE generates synthetic training examples for underrepresented classes
+    # so the model learns all three levels (high, medium, low) more fairly. 
+    sm = SMOTE(random_state=42)
+    X_train, Y_train = sm.fit_resample(X_train, Y_train)
 
     # Algorithm: Random forest 
     print("🤖 Training Random Forest model...")

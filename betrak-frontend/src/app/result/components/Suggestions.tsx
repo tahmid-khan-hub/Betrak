@@ -15,7 +15,7 @@ const Suggestions = ({ suggestions }: SuggestionsProps) => {
         {suggestions.map((suggestion, i) => (
           <ScrollAnimate key={i} delay={i*0.08}><div
             key={i}
-            className="rounded-2xl border border-white/10 bg-white/5 p-6 flex flex-col gap-4 hover:bg-gray-900"
+            className="rounded-2xl border border-white/10 bg-white/5 p-6 flex flex-col gap-4 hover:bg-gray-900 h-full"
           >
             {/* Number badge */}
             <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold bg-linear-to-r from-indigo-400 to-indigo-600 text-white">

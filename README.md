@@ -105,5 +105,44 @@ npm run dev
  
 ---
 
+### Analysis (Optional)
+ 
+To generate the model evaluation charts:
+ 
+```bash
+cd betrak-backend
+ 
+pip install matplotlib seaborn --break-system-packages
+ 
+python analysis/class_distribution.py
+python analysis/confusion_matrix.py
+python analysis/metrics_chart.py
+```
+ 
+Charts will be saved as PNG files inside the `analysis/` folder.
+ 
+---
 
+## Environment Variables
+ 
+### Frontend — `.env.local`
+```
+DATABASE_URL=postgresql://user:password@localhost:5432/betrak_db
+NEXTAUTH_SECRET=your_secret
+NEXTAUTH_URL=http://localhost:3000
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
+ 
+---
+
+## Authentication
+ 
+Betrak supports two authentication methods:
+- **Google OAuth** — via NextAuth.js
+- **Email & Password** — custom registration route with bcrypt hashing
+> The `password` column is nullable in the database to support both OAuth and credentials-based users simultaneously.
+> For email and password users,`passwords` are securely hashed using bcrypt before being stored in the database.
+---
  

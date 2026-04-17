@@ -49,4 +49,61 @@ Betrak is a full-stack web application that predicts a user's social media addic
 - **Train/Test Split:** 80/20
 - **Class Balancing:** SMOTE applied to training data to address underrepresentation of the Low class
 - **Serialization:** `joblib` → `model.pkl`
+
 ---
+
+## API Endpoints
+ 
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/v1/health` | Health check |
+| GET | `/api/v1/questions` | Fetch assessment questions |
+| POST | `/api/v1/predict` | Submit answers and get prediction |
+
+---
+
+
+## Getting Started
+
+### Backend Setup
+ 
+```bash
+cd betrak-backend
+ 
+# Create and activate virtual environment
+python -m venv venv
+venv\Scripts\activate        # Windows
+source venv/bin/activate     # Mac/Linux
+ 
+# Install dependencies
+pip install -r requirements.txt
+ 
+# Train the model
+python app/ml/train.py
+ 
+# Start the server
+uvicorn app.main:app --reload --port 8000
+```
+
+---
+
+### Frontend Setup
+ 
+```bash
+cd betrak-frontend
+ 
+# Install dependencies
+npm install
+ 
+# Set up environment variables
+cp .env.example .env.local
+# Fill in your PostgreSQL and NextAuth credentials
+ 
+# Run the development server
+npm run dev
+```
+ 
+---
+
+
+ 

@@ -145,4 +145,17 @@ Betrak supports two authentication methods:
 > The `password` column is nullable in the database to support both OAuth and credentials-based users simultaneously.
 > For email and password users,`passwords` are securely hashed using bcrypt before being stored in the database.
 ---
+
+## Limitations
+ 
+- Dataset is relatively small (~700 records) — may affect generalization on diverse populations
+- Dataset was originally designed for students — adaptation may introduce minor inconsistencies
+- Self-reported responses may contain bias
+- Model does not update in real-time — requires manual retraining as social media trends evolve
+---
+
+## Author
+ 
+**Tahmid**
+Social Media Addiction Predictor using Random Forest
  

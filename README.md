@@ -377,5 +377,5 @@ reviews (
 
 ## Sources
  
-<a href="https://www.kaggle.com/datasets/zahranusratt/student-social-media-addiction-analysis-dataset">Dataset Link</a>
+<a href="https://www.kaggle.com/datasets/zahranusratt/student-social-media-addiction-analysis-dataset" target="_blank" rel="noopener noreferrer">Dataset Link</a>
 

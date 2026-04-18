@@ -2,6 +2,5 @@ venv/
 .env
 __pycache__/
 *.pyc
-*.pkl
 .DS_Store
 betrak-backend/data/dataset.csv

@@ -6,6 +6,9 @@ from app.core.config import settings
 from app.core.database import engine, Base
 from app.api.v1.routes import predict, health
 
+from dotenv import load_dotenv
+load_dotenv()
+
 ''' first time start the server in local -> uvicorn main:app --reload --port 8000'''
 
 ### start server command -> uvicorn main:app --reload
@@ -32,7 +35,7 @@ app = FastAPI(
 # cors
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Next.js default port
+    allow_origins=["http://localhost:3000", "https://betrak-web.vercel.app"],  # Next.js default port & vercel deployed link (frontend)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

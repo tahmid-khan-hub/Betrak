@@ -8,7 +8,7 @@ const pool =
   global.pgPool ||
   new Pool({
     connectionString: process.env.DATABASE_URL,
-    ssl: false
+    ssl: { rejectUnauthorized: false }
   });
 
 if (process.env.NODE_ENV !== "production") {

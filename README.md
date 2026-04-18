@@ -333,6 +333,19 @@ Betrak supports two authentication methods:
 - **Email & Password** — custom registration route with bcrypt hashing
 > The `password` column is nullable in the database to support both OAuth and credentials-based users simultaneously.
 > For email and password users,`passwords` are securely hashed using bcrypt before being stored in the database.
+
+---
+
+## Model Performance
+ 
+| Class | Precision | Recall | F1-Score |
+|---|---|---|---|
+| High | ~0.98 | ~1.00 | ~0.99 |
+| Low | ~0.94 | ~0.96 | ~0.95 |
+| Medium | ~0.97 | ~0.95 | ~0.96 |
+ 
+> Note: High scores are expected given the dataset size and SMOTE balancing on training data.
+
 ---
 
 ## Limitations
@@ -341,10 +354,6 @@ Betrak supports two authentication methods:
 - Dataset was originally designed for students — adaptation may introduce minor inconsistencies
 - Self-reported responses may contain bias
 - Model does not update in real-time — requires manual retraining as social media trends evolve
+
 ---
 
-## Author
- 
-**Tahmid**
-Social Media Addiction Predictor using Random Forest
- 

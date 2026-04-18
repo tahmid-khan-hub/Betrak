@@ -336,6 +336,24 @@ Betrak supports two authentication methods:
 
 ---
 
+## Database Schema
+ 
+```sql
+users (
+  id, name, email, password (nullable), image (nullable), role, created_at, updated_at
+)
+ 
+user_predictions (
+  id, user_id, age, gender, country, avg_daily_usage_hours, most_used_platform, sleep_hours_per_night, meantal_health_score, addiction_level, confidence, suggestions, created_at
+)
+
+reviews (
+  id, user_id, user_name, user_image, rating, comment, created_at
+)
+```
+
+---
+
 ## Model Performance
  
 | Class | Precision | Recall | F1-Score |

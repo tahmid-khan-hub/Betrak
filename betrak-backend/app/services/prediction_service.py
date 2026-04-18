@@ -4,21 +4,15 @@ import pandas as pd
 from pathlib import Path
 from sklearn.preprocessing import LabelEncoder
 
-from app.ml.preprocess import load_and_clean_data, encode_features
+from app.services.encoder_data import GENDERS, COUNTRIES, PLATFORMS
 
 # Load model once when app starts
 MODEL_PATH = Path(__file__).resolve().parent.parent / "ml" / "model.pkl"
 model = joblib.load(MODEL_PATH)
 
-# Rebuild encoders from dataset to match training
-DATA_PATH = Path(__file__).resolve().parent.parent.parent / "data" / "dataset.csv"
-
-_df = load_and_clean_data(str(DATA_PATH))
-_df_encoded, _le = encode_features(_df)
-
-_gender_encoder = LabelEncoder().fit(_df["Gender"].astype(str))
-_country_encoder = LabelEncoder().fit(_df["Country"].astype(str))
-_platform_encoder = LabelEncoder().fit(_df["Most_Used_Platform"].astype(str))
+_gender_encoder = LabelEncoder().fit(GENDERS)
+_country_encoder = LabelEncoder().fit(COUNTRIES)
+_platform_encoder = LabelEncoder().fit(PLATFORMS)
 _target_encoder = LabelEncoder().fit(["high", "medium", "low"])
 
 # addiction level suggestions

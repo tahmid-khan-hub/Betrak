@@ -82,7 +82,7 @@ def predict_addiction(
     confidence = round(float(np.max(probabilities) * 100), 2)
 
     # decode prediction back to label
-    label_map = {0: "high", 1: "low", 2: "medium"}
+    label_map = {0: "high", 1: "medium", 2: "low"}
     addiction_level = label_map.get(prediction_encoded, "medium")
 
     return {

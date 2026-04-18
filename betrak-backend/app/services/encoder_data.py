@@ -1,0 +1,27 @@
+GENDERS = ["Female", "Male", "Non-binary"]
+
+COUNTRIES = [
+    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Argentina",
+    "Armenia", "Australia", "Austria", "Azerbaijan", "Bahrain", "Bangladesh",
+    "Belarus", "Belgium", "Bolivia", "Bosnia", "Brazil", "Bulgaria", "Cambodia",
+    "Cameroon", "Canada", "Chile", "China", "Colombia", "Costa Rica", "Croatia",
+    "Cuba", "Cyprus", "Czech Republic", "Denmark", "Ecuador", "Egypt",
+    "El Salvador", "Estonia", "Ethiopia", "Finland", "France", "Georgia",
+    "Germany", "Ghana", "Greece", "Hong Kong", "Hungary", "Iceland", "India",
+    "Indonesia", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan",
+    "Jordan", "Kazakhstan", "Kenya", "Kosovo", "Kuwait", "Kyrgyzstan", "Latvia",
+    "Lebanon", "Liechtenstein", "Lithuania", "Luxembourg", "Malaysia", "Maldives",
+    "Malta", "Mexico", "Moldova", "Monaco", "Montenegro", "Morocco", "Nepal",
+    "Netherlands", "New Zealand", "Nigeria", "North Macedonia", "Norway", "Oman",
+    "Pakistan", "Panama", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
+    "Qatar", "Romania", "Russia", "San Marino", "Serbia", "Singapore", "Slovakia",
+    "Slovenia", "South Africa", "South Korea", "Spain", "Sri Lanka", "Sweden",
+    "Switzerland", "Syria", "Taiwan", "Tajikistan", "Thailand", "Trinidad",
+    "Turkey", "UAE", "UK", "USA", "Ukraine", "Uruguay", "Uzbekistan",
+    "Vatican City", "Venezuela", "Vietnam", "Yemen"
+]
+
+PLATFORMS = [
+    "Facebook", "Instagram", "KakaoTalk", "LINE", "LinkedIn", "Snapchat",
+    "TikTok", "Twitter", "VKontakte", "WeChat", "WhatsApp", "YouTube"
+]

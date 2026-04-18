@@ -197,7 +197,20 @@ Betrak is a full-stack web application that predicts a user's social media addic
 | PostgreSQL | User & assessment storage |
  
 ### Backend
-
+| Technology | Purpose |
+|---|---|
+| FastAPI | REST API framework |
+| Uvicorn | ASGI server |
+| SQLAlchemy | Database ORM |
+| psycopg2 | PostgreSQL adapter |
+| Pydantic | Data validation & settings |
+| python-dotenv | Environment variable management |
+| scikit-learn | Random Forest model |
+| imbalanced-learn | SMOTE for class balancing |
+| pandas | Data processing |
+| numpy | Numerical computing |
+| joblib | Model serialization |
+| Python 3.11+ | Runtime |
  
 ---
 

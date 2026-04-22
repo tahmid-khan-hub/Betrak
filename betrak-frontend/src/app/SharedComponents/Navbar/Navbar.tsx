@@ -8,7 +8,6 @@ import { useSession, signOut } from "next-auth/react";
 
 const Navbar = () => {
   const { data: session, status} = useSession();
-  console.log(session);
   const { isOpen, setIsOpen, menuRef } = Menu();
   const links = (
     <>

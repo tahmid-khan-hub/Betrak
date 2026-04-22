@@ -7,178 +7,178 @@ Betrak is a full-stack web application that predicts a user's social media addic
 ## Project Structure
 
 ```
-├── betrak-backend/ (6000 tokens)
-    ├── app/ (4200 tokens)
+├── betrak-backend/ 
+    ├── app/ 
     │   ├── __init__.py
-    │   ├── ml/ (1000 tokens)
+    │   ├── ml/ 
     │   │   ├── __init__.py
-    │   │   ├── preprocess.py (500 tokens)
-    │   │   └── train.py (500 tokens)
-    │   ├── api/ (1300 tokens)
+    │   │   ├── preprocess.py 
+    │   │   └── train.py 
+    │   ├── api/
     │   │   ├── __init__.py
-    │   │   └── v1/ (1300 tokens)
+    │   │   └── v1/ 
     │   │   │   ├── __init__.py
-    │   │   │   ├── routes/ (1000 tokens)
+    │   │   │   ├── routes/ 
     │   │   │       ├── __init__.py
     │   │   │       ├── health.py
-    │   │   │       └── predict.py (900 tokens)
-    │   │   │   └── schemas/ (300 tokens)
+    │   │   │       └── predict.py 
+    │   │   │   └── schemas/ 
     │   │   │       ├── __init__.py
     │   │   │       ├── prediction.py
-    │   │   │       └── user_input.py (200 tokens)
-    │   ├── core/ (200 tokens)
+    │   │   │       └── user_input.py 
+    │   ├── core/ 
     │   │   ├── __init__.py
     │   │   ├── config.py
     │   │   └── database.py
-    │   ├── models/ (300 tokens)
+    │   ├── models/ 
     │   │   ├── __init__.py
-    │   │   └── user_prediction.py (300 tokens)
-    │   └── services/ (1400 tokens)
+    │   │   └── user_prediction.py 
+    │   └── services/ 
     │   │   ├── __init__.py
-    │   │   ├── mental_health_service.py (500 tokens)
-    │   │   └── prediction_service.py (900 tokens)
+    │   │   ├── mental_health_service.py 
+    │   │   └── prediction_service.py 
     ├── README.md
-    ├── analysis/ (1400 tokens)
-    │   ├── images/ (300 tokens)
+    ├── analysis/ 
+    │   ├── images/ 
     │   │   ├── metrics_chart.png
     │   │   ├── confusion_matrix.png
     │   │   └── class_distribution.png
-    │   ├── confusion_matrix.py (300 tokens)
-    │   ├── class_distribution.py (400 tokens)
-    │   └── metrics_chart.py (400 tokens)
+    │   ├── confusion_matrix.py 
+    │   ├── class_distribution.py 
+    │   └── metrics_chart.py 
     ├── requirements.txt
-    └── main.py (300 tokens)
+    └── main.py 
 
-├── betrak-frontend/ (32800 tokens)
+├── betrak-frontend/ 
     ├── CLAUDE.md
-    ├── public/ (100 tokens)
+    ├── public/ 
     │   └── default_user.png
     ├── postcss.config.mjs
-    ├── src/ (30900 tokens)
-    │   ├── types/ (600 tokens)
+    ├── src/ 
+    │   ├── types/ 
     │   │   ├── Review.ts
     │   │   ├── FormData.ts
     │   │   ├── DatabaseUser.ts
     │   │   ├── formDefaults.ts
-    │   │   └── next-auth.d.ts (200 tokens)
-    │   ├── lib/ (1900 tokens)
+    │   │   └── next-auth.d.ts 
+    │   ├── lib/ 
     │   │   ├── utils.ts
     │   │   ├── postgresql.ts
     │   │   ├── resultData.ts
-    │   │   ├── auth/ (200 tokens)
-    │   │   │   └── UserSignUP.ts (200 tokens)
-    │   │   ├── reviewApi.ts (300 tokens)
-    │   │   ├── betrakApi.ts (300 tokens)
-    │   │   └── authOptions.ts (800 tokens)
-    │   ├── app/ (27000 tokens)
-    │   │   ├── api/ (1200 tokens)
-    │   │   │   ├── auth/ (400 tokens)
-    │   │   │   │   ├── [...nextauth]/ (100 tokens)
+    │   │   ├── auth/ 
+    │   │   │   └── UserSignUP.ts 
+    │   │   ├── reviewApi.ts 
+    │   │   ├── betrakApi.ts
+    │   │   └── authOptions.ts 
+    │   ├── app/ 
+    │   │   ├── api/ 
+    │   │   │   ├── auth/
+    │   │   │   │   ├── [...nextauth]/ 
     │   │   │   │   │   └── route.ts
-    │   │   │   │   └── sign-up/ (300 tokens)
-    │   │   │   │   │   └── route.ts (300 tokens)
+    │   │   │   │   └── sign-up/ 
+    │   │   │   │   │   └── route.ts 
     │   │   │   ├── getQuestions.ts
-    │   │   │   ├── result/ (300 tokens)
-    │   │   │   │   └── route.ts (300 tokens)
-    │   │   │   └── review/ (400 tokens)
-    │   │   │   │   └── route.ts (400 tokens)
+    │   │   │   ├── result/ 
+    │   │   │   │   └── route.ts 
+    │   │   │   └── review/ 
+    │   │   │   │   └── route.ts 
     │   │   ├── ProviderSession.tsx
-    │   │   ├── SharedComponents/ (900 tokens)
-    │   │   │   ├── Footer/ (100 tokens)
+    │   │   ├── SharedComponents/ 
+    │   │   │   ├── Footer/
     │   │   │   │   └── Footer.tsx
-    │   │   │   └── Navbar/ (800 tokens)
-    │   │   │   │   └── Navbar.tsx (800 tokens)
-    │   │   ├── sign-in/ (1700 tokens)
+    │   │   │   └── Navbar/ 
+    │   │   │   │   └── Navbar.tsx 
+    │   │   ├── sign-in/ 
     │   │   │   ├── page.tsx
-    │   │   │   └── components/ (1600 tokens)
-    │   │   │   │   ├── SignInPageSkeleton.tsx (300 tokens)
-    │   │   │   │   ├── SignInPageClientSide.tsx (600 tokens)
-    │   │   │   │   └── SignInFormFields.tsx (700 tokens)
-    │   │   ├── sign-up/ (2200 tokens)
+    │   │   │   └── components/ 
+    │   │   │   │   ├── SignInPageSkeleton.tsx 
+    │   │   │   │   ├── SignInPageClientSide.tsx 
+    │   │   │   │   └── SignInFormFields.tsx 
+    │   │   ├── sign-up/ 
     │   │   │   ├── page.tsx
-    │   │   │   └── components/ (2100 tokens)
-    │   │   │   │   ├── SignUpPageSkeleton.tsx (300 tokens)
-    │   │   │   │   ├── SignUpPageClientSide.tsx (600 tokens)
-    │   │   │   │   └── SignUpFormFields.tsx (1200 tokens)
-    │   │   ├── assessment/ (4800 tokens)
+    │   │   │   └── components/ 
+    │   │   │   │   ├── SignUpPageSkeleton.tsx 
+    │   │   │   │   ├── SignUpPageClientSide.tsx
+    │   │   │   │   └── SignUpFormFields.tsx 
+    │   │   ├── assessment/ 
     │   │   │   ├── page.tsx
-    │   │   │   └── components/ (4700 tokens)
-    │   │   │   │   ├── MentalHealthQuestions/ (1500 tokens)
-    │   │   │   │       ├── components/ (700 tokens)
-    │   │   │   │       │   ├── questionOptions.ts (200 tokens)
-    │   │   │   │       │   ├── MentalHealthQuestionsSkeleton.tsx (200 tokens)
-    │   │   │   │       │   └── ErrorState.tsx (300 tokens)
-    │   │   │   │       └── MentalHealthQuestions.tsx (800 tokens)
-    │   │   │   │   ├── PersonalAndUsageInfo/ (1700 tokens)
-    │   │   │   │       ├── PersonalAndUsageInfo.tsx (500 tokens)
-    │   │   │   │       └── components/ (1200 tokens)
-    │   │   │   │       │   ├── PersonalInfo.tsx (500 tokens)
-    │   │   │   │       │   └── UsageInfo.tsx (700 tokens)
-    │   │   │   │   ├── AssessmentSkeleton.tsx (600 tokens)
-    │   │   │   │   └── AssessmentContent.tsx (900 tokens)
-    │   │   ├── QueryProvider.tsx (200 tokens)
-    │   │   ├── hooks/ (2000 tokens)
-    │   │   │   ├── NavLinks.tsx (200 tokens)
-    │   │   │   ├── Menu.tsx (200 tokens)
-    │   │   │   ├── Alert/ (600 tokens)
-    │   │   │   │   ├── ErrorAlert.tsx (300 tokens)
-    │   │   │   │   └── SucessAlert.tsx (300 tokens)
-    │   │   │   ├── ScrollAnimate.tsx (400 tokens)
-    │   │   │   └── Dropdown.tsx (600 tokens)
-    │   │   ├── page.tsx (200 tokens)
-    │   │   ├── not-found.tsx (200 tokens)
-    │   │   ├── HomeComponents/ (5200 tokens)
-    │   │   │   ├── Reviews/ (1100 tokens)
-    │   │   │   │   ├── ReviewCard.tsx (300 tokens)
-    │   │   │   │   ├── ReviewCardSkeleton.tsx (300 tokens)
-    │   │   │   │   └── Reviews.tsx (500 tokens)
-    │   │   │   ├── WhatWeMeasure/ (900 tokens)
-    │   │   │   │   ├── WhatWeMeasureData.tsx (400 tokens)
-    │   │   │   │   └── WhatWeMeasure.tsx (500 tokens)
-    │   │   │   ├── Banner/ (400 tokens)
-    │   │   │   │   └── Banner.tsx (400 tokens)
-    │   │   │   ├── CTA/ (400 tokens)
-    │   │   │   │   └── CTA.tsx (400 tokens)
-    │   │   │   ├── AddictionLevels/ (1100 tokens)
-    │   │   │   │   ├── AddictionLevelsData.tsx (500 tokens)
-    │   │   │   │   └── AddictionLevels.tsx (600 tokens)
-    │   │   │   ├── WhyItMatters/ (600 tokens)
-    │   │   │   │   └── WhyItMatters.tsx (600 tokens)
-    │   │   │   └── HowItWorks/ (700 tokens)
-    │   │   │   │   └── HowItWorks.tsx (700 tokens)
-    │   │   ├── result/ (6700 tokens)
-    │   │   │   ├── components/ (5900 tokens)
-    │   │   │   │   ├── Suggestions.tsx (300 tokens)
-    │   │   │   │   ├── NoResultFound/ (300 tokens)
-    │   │   │   │   │   └── NoResultFound.tsx (300 tokens)
-    │   │   │   │   ├── StatsCharts/ (2300 tokens)
-    │   │   │   │   │   ├── StatsCharts.tsx (300 tokens)
-    │   │   │   │   │   └── components/ (2000 tokens)
-    │   │   │   │   │   │   ├── DailyUsageChart.tsx (500 tokens)
-    │   │   │   │   │   │   ├── IntensityGauge.tsx (700 tokens)
-    │   │   │   │   │   │   └── SleepCorrelationChart.tsx (800 tokens)
-    │   │   │   │   ├── InputProfile.tsx (500 tokens)
-    │   │   │   │   ├── AddictionLevelCard.tsx (700 tokens)
-    │   │   │   │   ├── ResultSkeleton.tsx (900 tokens)
-    │   │   │   │   └── UserReview.tsx (900 tokens)
-    │   │   │   └── page.tsx (800 tokens)
-    │   │   ├── layout.tsx (400 tokens)
-    │   │   └── globals.css (1200 tokens)
-    │   ├── middleware.ts (200 tokens)
-    │   └── components/ (1200 tokens)
-    │   │   └── ui/ (1200 tokens)
-    │   │       ├── alert.tsx (500 tokens)
-    │   │       └── button.tsx (700 tokens)
+    │   │   │   └── components/ 
+    │   │   │   │   ├── MentalHealthQuestions/ 
+    │   │   │   │       ├── components/ 
+    │   │   │   │       │   ├── questionOptions.ts 
+    │   │   │   │       │   ├── MentalHealthQuestionsSkeleton.tsx
+    │   │   │   │       │   └── ErrorState.tsx 
+    │   │   │   │       └── MentalHealthQuestions.tsx 
+    │   │   │   │   ├── PersonalAndUsageInfo/ 
+    │   │   │   │       ├── PersonalAndUsageInfo.tsx 
+    │   │   │   │       └── components/
+    │   │   │   │       │   ├── PersonalInfo.tsx
+    │   │   │   │       │   └── UsageInfo.tsx 
+    │   │   │   │   ├── AssessmentSkeleton.tsx 
+    │   │   │   │   └── AssessmentContent.tsx 
+    │   │   ├── QueryProvider.tsx 
+    │   │   ├── hooks/ 
+    │   │   │   ├── NavLinks.tsx 
+    │   │   │   ├── Menu.tsx 
+    │   │   │   ├── Alert/ 
+    │   │   │   │   ├── ErrorAlert.tsx 
+    │   │   │   │   └── SucessAlert.tsx 
+    │   │   │   ├── ScrollAnimate.tsx 
+    │   │   │   └── Dropdown.tsx 
+    │   │   ├── page.tsx 
+    │   │   ├── not-found.tsx 
+    │   │   ├── HomeComponents/ 
+    │   │   │   ├── Reviews/ 
+    │   │   │   │   ├── ReviewCard.tsx 
+    │   │   │   │   ├── ReviewCardSkeleton.tsx 
+    │   │   │   │   └── Reviews.tsx 
+    │   │   │   ├── WhatWeMeasure/ 
+    │   │   │   │   ├── WhatWeMeasureData.tsx 
+    │   │   │   │   └── WhatWeMeasure.tsx 
+    │   │   │   ├── Banner/ 
+    │   │   │   │   └── Banner.tsx 
+    │   │   │   ├── CTA/ 
+    │   │   │   │   └── CTA.tsx 
+    │   │   │   ├── AddictionLevels/ 
+    │   │   │   │   ├── AddictionLevelsData.tsx 
+    │   │   │   │   └── AddictionLevels.tsx
+    │   │   │   ├── WhyItMatters/ 
+    │   │   │   │   └── WhyItMatters.tsx 
+    │   │   │   └── HowItWorks/ 
+    │   │   │   │   └── HowItWorks.tsx 
+    │   │   ├── result/
+    │   │   │   ├── components/
+    │   │   │   │   ├── Suggestions.tsx 
+    │   │   │   │   ├── NoResultFound/ 
+    │   │   │   │   │   └── NoResultFound.tsx
+    │   │   │   │   ├── StatsCharts/ 
+    │   │   │   │   │   ├── StatsCharts.tsx 
+    │   │   │   │   │   └── components/ 
+    │   │   │   │   │   │   ├── DailyUsageChart.tsx 
+    │   │   │   │   │   │   ├── IntensityGauge.tsx 
+    │   │   │   │   │   │   └── SleepCorrelationChart.tsx 
+    │   │   │   │   ├── InputProfile.tsx 
+    │   │   │   │   ├── AddictionLevelCard.tsx 
+    │   │   │   │   ├── ResultSkeleton.tsx 
+    │   │   │   │   └── UserReview.tsx 
+    │   │   │   └── page.tsx 
+    │   │   ├── layout.tsx 
+    │   │   └── globals.css
+    │   ├── middleware.ts 
+    │   └── components/ 
+    │   │   └── ui/
+    │   │       ├── alert.tsx 
+    │   │       └── button.tsx 
     ├── AGENTS.md
     ├── next.config.ts
-    ├── eslint.config.mjs (200 tokens)
-    ├── components.json (200 tokens)
-    ├── .gitignore (200 tokens)
-    ├── tsconfig.json (200 tokens)
-    ├── package.json (300 tokens)
-    └── README.md (400 tokens)
+    ├── eslint.config.mjs
+    ├── components.json 
+    ├── .gitignore 
+    ├── tsconfig.json 
+    ├── package.json
+    └── README.md 
 ├── .gitignore
-└── README.md (1000 tokens)
+└── README.md 
 
 ```
 

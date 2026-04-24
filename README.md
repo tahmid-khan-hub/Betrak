@@ -366,6 +366,22 @@ reviews (
 
 ---
 
+### Model Evaluation Charts
+
+<p align="center">
+  <img src="betrak-backend/analysis/images/class_distribution.png" alt="Class Distribution" width="600"/>
+</p>
+
+<p align="center">
+  <img src="betrak-backend/analysis/images/confusion_matrix.png" alt="Confusion Matrix" width="600"/>
+</p>
+
+<p align="center">
+  <img src="betrak-backend/analysis/images/metrics_chart.png" alt="Metrics Chart" width="600"/>
+</p>
+
+---
+
 ## Limitations
  
 - Dataset is relatively small (~700 records) — may affect generalization on diverse populations

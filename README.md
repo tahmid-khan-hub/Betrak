@@ -380,6 +380,10 @@ reviews (
   <img src="betrak-backend/analysis/images/metrics_chart.png" alt="Metrics Chart" width="600"/>
 </p>
 
+<p align="center">
+  <img src="betrak-backend/analysis/images/accuracy.png" alt="Training Output Accuracy" width="700"/>
+</p>
+
 ---
 
 ## Limitations

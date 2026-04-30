@@ -40,8 +40,8 @@ const Reviews = () => {
           </div>
         </Marquee>
         {/* Second row */}
-        <Marquee pauseOnHover speed={45} direction="right" className="mt-6 gap-5 mx-5">
-          <div className="flex">
+        <Marquee pauseOnHover speed={45} direction="right" >
+          <div className="flex mt-6 gap-5 mr-5">
             {isLoading
               ? Array.from({ length: 5 }).map((_, i) => (
                   <ReviewCardSkeleton key={i} />

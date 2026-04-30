@@ -366,19 +366,21 @@ reviews (
 
 ---
 
-### Model Evaluation Charts
+## Model Evaluation Charts
 
-<p align="center">
-  <img src="betrak-backend/analysis/images/class_distribution.png" alt="Class Distribution" width="600"/>
-</p>
+<table>
+  <tr>
+    <td><img src="betrak-backend/analysis/images/metrics_chart.png" alt="Metrices Chart" width="500"/></td>
+    <td><img src="betrak-backend/analysis/images/accuracy.png" alt="Accuracy" width="500"/></td>
+  </tr>
+</table>
 
-<p align="center">
-  <img src="betrak-backend/analysis/images/confusion_matrix.png" alt="Confusion Matrix" width="600"/>
-</p>
-
-<p align="center">
-  <img src="betrak-backend/analysis/images/metrics_chart.png" alt="Metrics Chart" width="600"/>
-</p>
+<table>
+  <tr>
+    <td><img src="betrak-backend/analysis/images/confusion_matrix.png" alt="Confusion Matrix" width="500"/></td>
+    <td><img src="betrak-backend/analysis/images/class_distribution.png" alt="Class Distribution" width="500"/></td>
+  </tr>
+</table>
 
 ---
 

@@ -40,7 +40,7 @@ const Reviews = () => {
           </div>
         </Marquee>
         {/* Second row */}
-        <Marquee pauseOnHover speed={45} direction="right" className="mt-6 gap-5 mr-5">
+        <Marquee pauseOnHover speed={45} direction="right" className="mt-6 gap-5 mx-5">
           <div className="flex">
             {isLoading
               ? Array.from({ length: 5 }).map((_, i) => (

@@ -44,7 +44,7 @@ const AddictionLevelsData = [
     color: "amber",
     description:
       "You show moderate signs of social media reliance. Your habits are worth paying attention to before they develop into a stronger dependency.",
-    signs: ["3–6 hours daily usage", "Occasional sleep disruption", "Mild FOMO tendencies"],
+    signs: ["4–6 hours daily usage", "Occasional sleep disruption", "Mild FOMO tendencies"],
   },
   {
     icon: <GoShieldCheck size={28} />,
@@ -52,7 +52,7 @@ const AddictionLevelsData = [
     color: "green",
     description:
       "Your relationship with social media appears healthy and balanced. You use it intentionally without it significantly impacting your mental health or daily life.",
-    signs: ["Under 3 hours daily usage", "Good sleep habits", "No significant anxiety offline"],
+    signs: ["Under 4 hours daily usage", "Good sleep habits", "No significant anxiety offline"],
   },
 ];
 

@@ -384,6 +384,23 @@ reviews (
 
 ---
 
+## Roadmap
+
+The following features are planned for future versions of Betrak:
+
+- **Assessment History** - Allow users to retake the assessment over time and
+  automatically store each session, so their data is never lost between visits.
+
+- **Progress Tracker** - A personalized dashboard showing how a user's addiction
+  level, sleep, and usage habits have shifted across sessions, with clear
+  indicators of improvement or decline over time.
+
+- **Healthy Profile Comparison** - A comparison view that benchmarks a user's
+  current lifestyle against the healthiest profiles in the dataset, giving them
+  a concrete, data-backed target to work toward.
+
+---
+
 ## Limitations
  
 - Dataset is relatively small (~700 records) — may affect generalization on diverse populations

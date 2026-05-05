@@ -13,10 +13,8 @@ interface DropdownProps {
 
 const Dropdown = ({ name, options, placeholder = "Select your gender", value, onChange, }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(value || "");
 
   const handleSelect = (option: string) => {
-    setSelected(option);
     setIsOpen(false);
     if (onChange) onChange(option);
   };
@@ -24,7 +22,7 @@ const Dropdown = ({ name, options, placeholder = "Select your gender", value, on
   return (
     <div className="relative">
       {/* hidden input to carry value in form */}
-      <input type="hidden" name={name} value={selected} />
+      <input type="hidden" name={name} value={value} />
 
       {/* trigger */}
       <button
@@ -32,8 +30,8 @@ const Dropdown = ({ name, options, placeholder = "Select your gender", value, on
         onClick={() => setIsOpen((prev) => !prev)}
         className="flex w-full items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-left transition focus:border-indigo-500/60 focus:outline-none focus:ring-1 focus:ring-indigo-500/40"
       >
-        <span className={selected ? "text-gray-100" : "text-gray-500"}>
-          {selected || placeholder}
+        <span className={value ? "text-gray-100" : "text-gray-500"}>
+          {value || placeholder}
         </span>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}

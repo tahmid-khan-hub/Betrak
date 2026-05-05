@@ -37,8 +37,23 @@ export async function submitAssessment(
   })
 
   if (!res.ok) {
-    const error = await res.json();
-    throw new Error(error.detail || "Prediction failed");
+    let message = "Prediction failed";
+    try {
+      const error = await res.json();
+      const detail = error.detail;
+      message =
+        typeof detail === "string"
+          ? detail
+          : Array.isArray(detail)
+            ? detail.map((d: { msg: string; loc: string[] }) => {
+                const field = d.loc[d.loc.length - 1];
+                return `${field}: ${d.msg}`;
+              }).join(", ")
+            : message;
+    } catch {
+      message = `Request failed with status ${res.status}`;
+    }
+    throw new Error(message);
   }
 
   return res.json();

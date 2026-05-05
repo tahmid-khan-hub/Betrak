@@ -34,9 +34,9 @@ const AssessmentContent = () => {
       setAlertType("success")
       router.push("/result");
     } catch (error: unknown) {
-      let message = "Something went wrong. Please try again.";
-      if (error instanceof Error) message = error.message; 
-      setErrorMsg(message)
+      const message =
+        error instanceof Error ? error.message : "Something went wrong. Please try again.";
+      setErrorMsg(message);
       setAlertType("error");
     } finally {
       setIsSubmitting(false);

@@ -24,7 +24,8 @@ const UsageInfo = ({ formData, onChange }: UsageInfoProps) => {
                 <label className="text-sm font-medium text-gray-300">
                     Most Used Platform
                 </label>
-                <Dropdown name="most_used_platform" options={platforms} placeholder="Select a platform" onChange={(value) => onChange("most_used_platform", value)} />
+                <Dropdown name="most_used_platform" options={platforms} placeholder="Select a platform"
+                value={formData.most_used_platform} onChange={(value) => onChange("most_used_platform", value)} />
             </div>
 
             {/* Average Daily Usage Hours */}

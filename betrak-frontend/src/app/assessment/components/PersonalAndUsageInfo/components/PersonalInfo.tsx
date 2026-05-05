@@ -29,7 +29,8 @@ const PersonalInfo = ({ formData, onChange }: PersonalInfoPros) => {
       {/* Gender */}
       <div className="flex flex-col gap-1.5">
         <label className="text-sm font-medium text-gray-300">Gender</label>
-        <Dropdown name="gender" options={["Male", "Female"]} placeholder="Select your gender" onChange={(value) => onChange("gender", value)} />
+        <Dropdown name="gender" options={["Male", "Female"]} placeholder="Select your gender" 
+        value={formData.gender} onChange={(value) => onChange("gender", value)} />
       </div>
 
       {/* Country */}

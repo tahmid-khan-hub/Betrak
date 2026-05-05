@@ -14,7 +14,7 @@ import useSessionForm from "@/app/hooks/useSessionForm";
 
 const AssessmentContent = () => {
   const router = useRouter();
-  const [step, setStep] = useState(1);
+  const [step, setStep, clearStep] = useSessionForm<number>("betrak_step", 1);
   const [formData, setFormData, clearForm] = useSessionForm<FormData>("betrak_form", defaultFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [alertType, setAlertType] = useState<"success" | "error" | null>(null)
@@ -33,6 +33,7 @@ const AssessmentContent = () => {
     try {
       await submitAssessment(formData, answers);
       clearForm();
+      clearStep();
       setAlertType("success")
       router.push("/result");
     } catch (error: unknown) {

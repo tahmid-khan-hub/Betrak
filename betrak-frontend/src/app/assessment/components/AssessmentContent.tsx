@@ -10,11 +10,12 @@ import { submitAssessment } from "@/lib/betrakApi";
 import { AnimatePresence } from "framer-motion";
 import { SuccessAlert } from "@/app/hooks/Alert/SucessAlert";
 import { ErrorAlert } from "@/app/hooks/Alert/ErrorAlert";
+import useSessionForm from "@/app/hooks/useSessionForm";
 
 const AssessmentContent = () => {
   const router = useRouter();
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState<FormData>(defaultFormData);
+  const [formData, setFormData, clearForm] = useSessionForm<FormData>("betrak_form", defaultFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [alertType, setAlertType] = useState<"success" | "error" | null>(null)
   const [errorMsg, setErrorMsg] = useState("");
@@ -31,6 +32,7 @@ const AssessmentContent = () => {
     setIsSubmitting(true);
     try {
       await submitAssessment(formData, answers);
+      clearForm();
       setAlertType("success")
       router.push("/result");
     } catch (error: unknown) {

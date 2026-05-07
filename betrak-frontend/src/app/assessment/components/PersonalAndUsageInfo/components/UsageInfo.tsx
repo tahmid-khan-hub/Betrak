@@ -1,19 +1,11 @@
 "use client"
 import Dropdown from "@/app/hooks/Dropdown";
 import { FormData } from "@/types/FormData";
+import { platforms } from "./PlatformsAndCountriesData";
 interface UsageInfoProps {
   formData: FormData;
   onChange: (name: keyof FormData, value: string) => void;
 }
-
-const platforms = [
-    "Instagram",
-    "TikTok",
-    "Twitter",
-    "Facebook",
-    "YouTube",
-    "Snapchat",
-];
 
 const UsageInfo = ({ formData, onChange }: UsageInfoProps) => {
     return (

@@ -50,7 +50,7 @@ const Dropdown = ({ name, options, placeholder = "Select your gender", value, on
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.15 }}
-            className="absolute z-10 mt-2 w-full overflow-hidden rounded-xl border border-white/10 bg-gray-900 shadow-xl"
+            className="absolute z-10 mt-2 w-full max-h-48 overflow-y-auto rounded-xl border border-white/10 bg-gray-900 shadow-xl"
           >
             {options.map((option) => (
               <li

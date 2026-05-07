@@ -1,6 +1,7 @@
 "use client";
 import Dropdown from "@/app/hooks/Dropdown";
 import { FormData } from "@/types/FormData";
+import { countries } from "./PlatformsAndCountriesData";
 
 interface PersonalInfoPros {
   formData: FormData;
@@ -36,14 +37,8 @@ const PersonalInfo = ({ formData, onChange }: PersonalInfoPros) => {
       {/* Country */}
       <div className="flex flex-col gap-1.5">
         <label className="text-sm font-medium text-gray-300">Country</label>
-        <input
-          type="text"
-          name="country"
-          value={formData.country}
-          onChange={(e) => onChange("country", e.target.value)}
-          placeholder="Enter your country"
-          className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-gray-100 placeholder-gray-500 outline-none transition focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/40"
-        />
+        <Dropdown name="country" options={countries} placeholder="Select your country"
+        value={formData.country} onChange={(value) => onChange("country", value)} />
       </div>
     </form>
   );

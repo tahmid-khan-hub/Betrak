@@ -33,12 +33,6 @@ def predict(user_input: UserInput, db: Session = Depends(get_db)):
         mental_health_score=mental_health_score
     )
 
-    # before creating record, checking duplicate assessment submission
-    existing = db.query(UserPrediction).filter( UserPrediction.user_id == user_input.user_id ).first()
-
-    if existing:
-        raise HTTPException( status_code=400, detail="You have already submitted an assessment." )
-
     # 3. save to postgreSQL
     record = UserPrediction(
         user_id=user_input.user_id,

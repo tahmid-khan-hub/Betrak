@@ -10,7 +10,7 @@ import { BsShieldFillCheck } from "react-icons/bs";
 import ResultSkeleton from "./components/ResultSkeleton";
 import UserReview from "./components/UserReview";
 import NoResultFound from "./components/NoResultFound/NoResultFound";
-import ProgressChart from "./components/StatsCharts/components/ProgressChart";
+import ProgressChart from "./components/ProgressChart/ProgressChart";
 
 const ResultPage = () => {
   const { data, isLoading } = useQuery({
@@ -57,6 +57,8 @@ const ResultPage = () => {
         <StatsCharts addictionLevel={predictionResult.addiction_level} avgDailyUsageHours={predictionResult.avg_daily_usage_hours} 
         sleepHoursPerNight={predictionResult.sleep_hours_per_night} confidence={predictionResult.confidence} />
       </div>
+      {/* Progress chart */}
+      <div> <ProgressChart/> </div>
       {/* input profile */}
       <div>
         <InputProfile

@@ -20,7 +20,7 @@ def train():
     df = load_and_clean_data(str(DATA_PATH))
 
     print("🔧 Encoding features...")
-    df, le = encode_features(df)
+    df = encode_features(df)
 
     print("✂️  Splitting features and target...")
     X, Y = get_features_and_target(df)

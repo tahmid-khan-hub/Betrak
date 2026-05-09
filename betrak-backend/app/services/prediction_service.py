@@ -13,7 +13,7 @@ model = joblib.load(MODEL_PATH)
 _gender_encoder = LabelEncoder().fit(GENDERS)
 _country_encoder = LabelEncoder().fit(COUNTRIES)
 _platform_encoder = LabelEncoder().fit(PLATFORMS)
-_target_encoder = LabelEncoder().fit(["high", "medium", "low"])
+# _target_encoder = LabelEncoder().fit(["high", "medium", "low"])
 
 # addiction level suggestions
 SUGGESTIONS = {
@@ -82,7 +82,7 @@ def predict_addiction(
     confidence = round(float(np.max(probabilities) * 100), 2)
 
     # decode prediction back to label
-    label_map = {0: "high", 1: "medium", 2: "low"}
+    label_map = {0: "high", 1: "low", 2: "medium"}
     addiction_level = label_map.get(prediction_encoded, "medium")
 
     return {

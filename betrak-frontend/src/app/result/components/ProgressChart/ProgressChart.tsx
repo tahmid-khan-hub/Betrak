@@ -4,6 +4,7 @@ import { HistoryType } from "@/types/HistoryType";
 import { useQuery } from "@tanstack/react-query";
 import { TbChartLine } from "react-icons/tb";
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, } from "recharts";
+import ProgressChartSkeleton from "./ProgressChartSkeleton";
 
 const levelColor = {
   high: "bg-red-500/20 text-red-400 border-red-500/30",
@@ -19,6 +20,8 @@ const ProgressChart = () => {
       return res.json();
     },
   });
+
+  if(isLoading) return <ProgressChartSkeleton />;
 
   const historyDataRows: HistoryType[] = data?.data ?? [];
 

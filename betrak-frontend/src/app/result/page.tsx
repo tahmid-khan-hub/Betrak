@@ -17,7 +17,14 @@ const ResultPage = () => {
     queryKey: ["result"],
     queryFn: getResultData,
   })
-  if(isLoading) return <ResultSkeleton />;
+  const { data: historyData, isLoading: historyLoading } = useQuery({
+    queryKey: ["history"],
+    queryFn: async () => {
+      const res = await fetch("/api/result/history");
+      return res.json();
+    },
+} );
+  if(isLoading || historyLoading) return <ResultSkeleton />;
 
   if (!data?.data.data) return <NoResultFound />; // without taking the assessment, user can not see the result
   const predictionResult = data?.data.data;
@@ -58,7 +65,7 @@ const ResultPage = () => {
         sleepHoursPerNight={predictionResult.sleep_hours_per_night} confidence={predictionResult.confidence} />
       </div>
       {/* Progress chart */}
-      <div> <ProgressChart/> </div>
+      <div> <ProgressChart historyData={historyData?.data ?? []} /> </div>
       {/* input profile */}
       <div>
         <InputProfile

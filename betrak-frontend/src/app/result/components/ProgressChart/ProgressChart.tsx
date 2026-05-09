@@ -1,10 +1,8 @@
 "use client";
 import ScrollAnimate from "@/app/hooks/ScrollAnimate";
 import { HistoryType } from "@/types/HistoryType";
-import { useQuery } from "@tanstack/react-query";
 import { TbChartLine } from "react-icons/tb";
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, } from "recharts";
-import ProgressChartSkeleton from "./ProgressChartSkeleton";
 
 const levelColor = {
   high: "bg-red-500/20 text-red-400 border-red-500/30",
@@ -12,20 +10,9 @@ const levelColor = {
   low: "bg-green-500/20 text-green-400 border-green-500/30",
 };
 
-const ProgressChart = () => {
-  const { data, isLoading } = useQuery({
-    queryKey: ["history"],
-    queryFn: async () => {
-      const res = await fetch("/api/result/history");
-      return res.json();
-    },
-  });
+const ProgressChart = ({ historyData }:{ historyData:HistoryType[] }) => {
 
-  if(isLoading) return <ProgressChartSkeleton />;
-
-  const historyDataRows: HistoryType[] = data?.data ?? [];
-
-  const ChartData = historyDataRows.map((row, i) => ({
+  const ChartData = historyData.map((row, i) => ({
     session: `#${i + 1}`,
     "Daily Usage (hrs)": row.avg_daily_usage_hours,
     "Sleep (hrs)": row.sleep_hours_per_night,
@@ -36,7 +23,7 @@ const ProgressChart = () => {
   }));
   return (
     <ScrollAnimate delay={0.4}>
-        <div className="mx-auto max-w-4xl mt-24 flex gap-4">
+        <div className="mx-auto max-w-4xl mt-24 gap-4">
         <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
             {/*header  */}
             <div className="flex items-center gap-3 mb-6">
@@ -45,7 +32,7 @@ const ProgressChart = () => {
             </div>
             <div>
                 <h2 className="text-lg font-semibold text-gray-50"> Progress Over Time </h2>
-                <p className="text-xs text-gray-400"> {historyDataRows.length} assessments tracked </p>
+                <p className="text-xs text-gray-400"> {historyData.length} assessments tracked </p>
             </div>
             </div>
 

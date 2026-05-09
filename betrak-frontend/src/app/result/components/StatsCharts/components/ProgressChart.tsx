@@ -41,6 +41,18 @@ const ProgressChart = () => {
                     <p className="text-xs text-gray-400">{historyDataRows.length} assessments tracked</p>
                 </div>
             </div>
+
+            {/* addiction level badges per session */}
+            <div className="flex flex-wrap gap-2 mb-6">
+                {ChartData.map((data) => (
+                    <div key={data.session} className="flex flex-col items-center gap-1">
+                        <span className="text-xs text-gray-500">{data.date}</span>
+                        <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border capitalize ${levelColor[data.addiction_level as keyof typeof levelColor]}`}>
+                            {data.addiction_level}
+                        </span>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

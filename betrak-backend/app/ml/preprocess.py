@@ -15,28 +15,29 @@ def load_and_clean_data(filepath: str):
     ]
     df.drop(columns=[col for col in academic_cols if col in df.columns], inplace=True)
 
-    # frop rows with missing values
+    # drop rows with missing values
     df.dropna(inplace=True)
 
     return df
 
 # converting text/categorial and targeted cols into numbers
 def encode_features(df: pd.DataFrame):
-    le = LabelEncoder()
 
     # encode categorial cols
     categorial_cols = ["Gender", "Country", "Most_Used_Platform"]
     for col in categorial_cols:
         if col in df.columns:
+            le = LabelEncoder()
             df[col] = le.fit_transform(df[col].astype(str))
     
     # encode target cols
     if "Addicted_Score" in df.columns:
         df["Addiction_Level"] = df["Addicted_Score"].apply(classify_addiction)
         df.drop(columns=["Addicted_Score"], inplace=True)
-        df["Addiction_Level"] = le.fit_transform(df["Addiction_Level"])
-    
-    return df, le
+        label_encoder = LabelEncoder()
+        df["Addiction_Level"] = label_encoder.fit_transform(df["Addiction_Level"]) # high=0, low=1, medium=2
+        
+    return df
 
 def classify_addiction(score: float) -> str:
     if score >= 7:

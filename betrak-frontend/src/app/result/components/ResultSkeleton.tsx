@@ -49,6 +49,26 @@ const ResultSkeleton = () => {
           </div>
         </div>
 
+        {/* Progress chart */}
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div className="flex items-center gap-3 mb-6">
+            <SkeletonBox className="w-9 h-9 rounded-lg" />
+            <div className="flex flex-col gap-2">
+              <SkeletonBox className="w-40 h-4" />
+              <SkeletonBox className="w-24 h-3" />
+            </div>
+          </div>
+          <div className="flex gap-3 mb-6">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="flex flex-col items-center gap-1">
+                <SkeletonBox className="w-10 h-3" />
+                <SkeletonBox className="w-14 h-5 rounded-full" />
+              </div>
+            ))}
+          </div>
+          <SkeletonBox className="w-full h-40" />
+        </div>
+
         {/* InputProfile */}
         <div className="rounded-2xl border border-white/10 bg-white/5 px-8 py-7 my-24">
           <div className="flex flex-col gap-6 md:flex-row md:items-center">

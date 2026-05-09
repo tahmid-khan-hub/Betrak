@@ -36,7 +36,7 @@ const ProgressChart = () => {
   }));
   return (
     <ScrollAnimate delay={0.4}>
-        <div className="mx-auto max-w-4xl mt-24 flex flex-col gap-4 md:flex-row">
+        <div className="mx-auto max-w-4xl mt-24 flex gap-4">
         <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
             {/*header  */}
             <div className="flex items-center gap-3 mb-6">

@@ -16,9 +16,7 @@ export async function GET() {
         ORDER BY created_at ASC`,
         [session.user.id] );
 
-        if (result.rows.length === 0) return NextResponse.json( { success: false, message: "No result found" }, { status: 404 } );
-
-        return NextResponse.json({ success: true, data: result.rows[0] });
+        return NextResponse.json({ success: true, data: result.rows });
 
     } catch (error) {
         console.error("User result history not found:", error);

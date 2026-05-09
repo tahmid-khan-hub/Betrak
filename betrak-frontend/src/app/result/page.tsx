@@ -57,8 +57,6 @@ const ResultPage = () => {
         <StatsCharts addictionLevel={predictionResult.addiction_level} avgDailyUsageHours={predictionResult.avg_daily_usage_hours} 
         sleepHoursPerNight={predictionResult.sleep_hours_per_night} confidence={predictionResult.confidence} />
       </div>
-      {/* Progress chart */}
-      <div>  <ProgressChart />  </div>
       {/* input profile */}
       <div>
         <InputProfile

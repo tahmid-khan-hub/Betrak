@@ -34,7 +34,7 @@ const ProgressChart = ({ historyData }:{ historyData:HistoryType[] }) => {
                 <TbChartLine className="text-indigo-400" size={20} />
             </div>
             <div>
-                <h2 className="text-lg font-semibold text-gray-50"> Progress Over Time </h2>
+                <h2 className="jakartaSans text-lg font-semibold text-gray-50"> Progress Over Time </h2>
                 <p className="text-xs text-gray-400"> {historyData.length} assessments tracked </p>
             </div>
             </div>

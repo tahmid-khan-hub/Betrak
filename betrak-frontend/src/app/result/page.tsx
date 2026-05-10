@@ -23,10 +23,10 @@ const ResultPage = () => {
       const res = await fetch("/api/result/history");
       return res.json();
     },
-} );
-  if(isLoading || historyLoading) return <ResultSkeleton />;
+  } );
 
-  if (!data?.data.data) return <NoResultFound />; // without taking the assessment, user can not see the result
+  if(isLoading || historyLoading) return <ResultSkeleton />;
+  if (!isLoading && !data?.data.data) return <NoResultFound />; // without taking the assessment, user can not see the result
   const predictionResult = data?.data.data;
 
   return (

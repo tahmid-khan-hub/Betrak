@@ -3,6 +3,7 @@ import ScrollAnimate from "@/app/hooks/ScrollAnimate";
 import { HistoryType } from "@/types/HistoryType";
 import { TbChartLine } from "react-icons/tb";
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, } from "recharts";
+import ProgressChartEmpty from "./ProgressChartEmpty";
 
 const levelColor = {
   high: "bg-red-500/20 text-red-400 border-red-500/30",
@@ -21,6 +22,8 @@ const ProgressChart = ({ historyData }:{ historyData:HistoryType[] }) => {
     addiction_level: row.addiction_level,
     date: new Date(row.created_at).toLocaleDateString("en-GB", { day: "numeric", month: "short", }),
   }));
+
+  if(historyData.length < 2) return <ProgressChartEmpty />;
   return (
     <ScrollAnimate delay={0.4}>
         <div className="mx-auto max-w-4xl mt-24 gap-4">

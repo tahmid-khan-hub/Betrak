@@ -11,6 +11,8 @@ import { AnimatePresence } from "framer-motion";
 import { SuccessAlert } from "@/app/hooks/Alert/SucessAlert";
 import { ErrorAlert } from "@/app/hooks/Alert/ErrorAlert";
 import useSessionForm from "@/app/hooks/useSessionForm";
+import { useQuery } from "@tanstack/react-query";
+import { getResultData } from "@/lib/resultData";
 
 const AssessmentContent = () => {
   const router = useRouter();
@@ -45,6 +47,11 @@ const AssessmentContent = () => {
       setIsSubmitting(false);
     }
   };
+
+  const { data: lastResult } = useQuery({
+    queryKey: ["result"], queryFn: getResultData, });
+  
+  const lastPrediction = lastResult?.data?.data;
   return (
     <div className="min-h-screen px-2 py-24">
       <div className="mx-auto max-w-5xl">

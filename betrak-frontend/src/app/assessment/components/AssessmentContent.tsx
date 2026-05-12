@@ -51,7 +51,7 @@ const AssessmentContent = () => {
   };
 
   const { data: lastResult, isLoading } = useQuery({
-    queryKey: ["result"], queryFn: getResultData, });
+    queryKey: ["result"], queryFn: getResultData, retry: false, });
   
   const lastPrediction = lastResult?.data?.data;
   if(isLoading) return <LastPredictionSkeleton />;

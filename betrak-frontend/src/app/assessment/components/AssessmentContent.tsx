@@ -15,6 +15,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getResultData } from "@/lib/resultData";
 import LastPrediction from "./LastPrediction/LastPrediction";
 import LastPredictionSkeleton from "./LastPrediction/LastPredictionSkeleton";
+import NoLastPrediction from "./LastPrediction/NoLastPrediction";
 
 const AssessmentContent = () => {
   const router = useRouter();
@@ -75,7 +76,7 @@ const AssessmentContent = () => {
           </ScrollAnimate>
         </div>
         {/* show last prediction result */}
-        {isLoading ? <LastPredictionSkeleton /> : lastPrediction && <LastPrediction lastPredictionData={lastPrediction} />} 
+        {isLoading ? <LastPredictionSkeleton /> : lastPrediction ? <LastPrediction lastPredictionData={lastPrediction} /> : <NoLastPrediction /> } 
       </div>
 
       <div className="mt-48">

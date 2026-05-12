@@ -8,6 +8,8 @@ import ErrorState from "./components/ErrorState"
 import ScrollAnimate from "@/app/hooks/ScrollAnimate";
 import { getQuestions } from "@/app/api/getQuestions";
 import { MentalHealthQuestionsPros, Question } from "@/types/MentalHealthQuestions";
+import { AnimatePresence } from "framer-motion";
+import { WarningAlert } from "@/app/hooks/Alert/WarningAlert";
 
 const MentalHealthQuestions = ({ back, onFinish, isSubmitting, hasExistingAssessment }: MentalHealthQuestionsPros) => {
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -83,6 +85,15 @@ const MentalHealthQuestions = ({ back, onFinish, isSubmitting, hasExistingAssess
           className="flex-1 rounded-xl bg-indigo-600 px-8 py-5 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-40"
         > {isSubmitting ? "Analyzing..." : "Finish"} </Button>
       </div>
+      
+      {/* warning alert */}
+      <AnimatePresence>
+        {showWarning && (
+          <WarningAlert title="Retaking So Soon?"
+            description="For more accurate progress tracking, we recommend waiting at least 7 days between assessments."
+            onClose={() => setShowWarning(false)} />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

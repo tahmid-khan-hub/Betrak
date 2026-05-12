@@ -14,6 +14,7 @@ import useSessionForm from "@/app/hooks/useSessionForm";
 import { useQuery } from "@tanstack/react-query";
 import { getResultData } from "@/lib/resultData";
 import LastPrediction from "./LastPrediction/LastPrediction";
+import LastPredictionSkeleton from "./LastPrediction/LastPredictionSkeleton";
 
 const AssessmentContent = () => {
   const router = useRouter();
@@ -49,10 +50,12 @@ const AssessmentContent = () => {
     }
   };
 
-  const { data: lastResult } = useQuery({
+  const { data: lastResult, isLoading } = useQuery({
     queryKey: ["result"], queryFn: getResultData, });
   
   const lastPrediction = lastResult?.data?.data;
+  if(isLoading) return <LastPredictionSkeleton />;
+
   return (
     <div className="min-h-screen px-2 py-24">
       <div className="mx-auto max-w-5xl">

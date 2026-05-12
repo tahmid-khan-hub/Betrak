@@ -54,8 +54,6 @@ const AssessmentContent = () => {
     queryKey: ["result"], queryFn: getResultData, retry: false, });
   
   const lastPrediction = lastResult?.data?.data;
-  if(isLoading) return <LastPredictionSkeleton />;
-
   return (
     <div className="min-h-screen px-2 py-24">
       <div className="mx-auto max-w-5xl">
@@ -76,7 +74,8 @@ const AssessmentContent = () => {
             </p>
           </ScrollAnimate>
         </div>
-        {lastPrediction && <LastPrediction lastPredictionData={lastPrediction} />}  {/* show last prediction result */}
+        {/* show last prediction result */}
+        {isLoading ? <LastPredictionSkeleton /> : lastPrediction && <LastPrediction lastPredictionData={lastPrediction} />} 
       </div>
 
       <div className="mt-48">

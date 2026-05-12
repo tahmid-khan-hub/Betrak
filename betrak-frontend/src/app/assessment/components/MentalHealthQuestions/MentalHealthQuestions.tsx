@@ -9,8 +9,9 @@ import ScrollAnimate from "@/app/hooks/ScrollAnimate";
 import { getQuestions } from "@/app/api/getQuestions";
 import { MentalHealthQuestionsPros, Question } from "@/types/MentalHealthQuestions";
 
-const MentalHealthQuestions = ({ back, onFinish, isSubmitting }: MentalHealthQuestionsPros) => {
+const MentalHealthQuestions = ({ back, onFinish, isSubmitting, hasExistingAssessment }: MentalHealthQuestionsPros) => {
   const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [showWarning, setShowWarning] = useState(false);
 
   const { data: questions, isLoading, isError, refetch } = useQuery<Question[]>({
     queryKey: ["questions"],
@@ -18,6 +19,15 @@ const MentalHealthQuestions = ({ back, onFinish, isSubmitting }: MentalHealthQue
   });
 
   const allAnswered = questions && questions.length > 0 && questions.every((q) => answers[q.id]);
+
+  const handleFinish = () => {
+    if (!allAnswered) return;
+    if (hasExistingAssessment && !showWarning) {
+      setShowWarning(true); // show warning first
+      return;
+    }
+    onFinish(answers); // second click proceeds
+  }
 
   if (isLoading) return <MentalHealthQuestionsSkeleton />;
   if (isError) return <ErrorState retry={refetch} />;
@@ -68,7 +78,7 @@ const MentalHealthQuestions = ({ back, onFinish, isSubmitting }: MentalHealthQue
         <Button type="button" onClick={back}
           className="rounded-xl border border-indigo-500 bg-white/5 px-8 py-5 text-sm font-medium text-gray-300 transition hover:bg-white/10"
         > Back </Button>
-        <Button type="button" onClick={() => allAnswered && onFinish(answers)}
+        <Button type="button" onClick={handleFinish}
           disabled={!allAnswered || isSubmitting}
           className="flex-1 rounded-xl bg-indigo-600 px-8 py-5 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-40"
         > {isSubmitting ? "Analyzing..." : "Finish"} </Button>

@@ -14,6 +14,7 @@ import { WarningAlert } from "@/app/hooks/Alert/WarningAlert";
 const MentalHealthQuestions = ({ back, onFinish, isSubmitting, hasExistingAssessment }: MentalHealthQuestionsPros) => {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [showWarning, setShowWarning] = useState(false);
+  const [warningShown, setWarningShown] = useState(false);
 
   const { data: questions, isLoading, isError, refetch } = useQuery<Question[]>({
     queryKey: ["questions"],
@@ -24,8 +25,9 @@ const MentalHealthQuestions = ({ back, onFinish, isSubmitting, hasExistingAssess
 
   const handleFinish = () => {
     if (!allAnswered) return;
-    if (hasExistingAssessment && !showWarning) {
+    if (hasExistingAssessment && !warningShown) {
       setShowWarning(true); // show warning first
+      setWarningShown(true); // mark as seen
       return;
     }
     onFinish(answers); // second click proceeds
@@ -85,7 +87,7 @@ const MentalHealthQuestions = ({ back, onFinish, isSubmitting, hasExistingAssess
           className="flex-1 rounded-xl bg-indigo-600 px-8 py-5 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-40"
         > {isSubmitting ? "Analyzing..." : "Finish"} </Button>
       </div>
-      
+
       {/* warning alert */}
       <AnimatePresence>
         {showWarning && (

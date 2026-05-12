@@ -89,7 +89,8 @@ const AssessmentContent = () => {
           {step === 2 && (
             <MentalHealthQuestions
               back={() => setStep(1)}
-              onFinish={handleFinish} isSubmitting={isSubmitting} /> )}
+              onFinish={handleFinish} isSubmitting={isSubmitting}
+              hasExistingAssessment={!!lastPrediction} /> )}
         </div>
       </div>
 

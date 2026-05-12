@@ -7,17 +7,7 @@ import MentalHealthQuestionsSkeleton from "./components/MentalHealthQuestionsSke
 import ErrorState from "./components/ErrorState"
 import ScrollAnimate from "@/app/hooks/ScrollAnimate";
 import { getQuestions } from "@/app/api/getQuestions";
-
-interface Question {
-  id: string;
-  question: string;
-}
-
-interface MentalHealthQuestionsPros {
-  back: () => void;
-  onFinish: (answers: Record<string, string>) => void;
-  isSubmitting?: boolean;
-}
+import { MentalHealthQuestionsPros, Question } from "@/types/MentalHealthQuestions";
 
 const MentalHealthQuestions = ({ back, onFinish, isSubmitting }: MentalHealthQuestionsPros) => {
   const [answers, setAnswers] = useState<Record<string, string>>({});

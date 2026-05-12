@@ -13,6 +13,7 @@ import { ErrorAlert } from "@/app/hooks/Alert/ErrorAlert";
 import useSessionForm from "@/app/hooks/useSessionForm";
 import { useQuery } from "@tanstack/react-query";
 import { getResultData } from "@/lib/resultData";
+import LastPrediction from "./LastPrediction/LastPrediction";
 
 const AssessmentContent = () => {
   const router = useRouter();
@@ -72,6 +73,7 @@ const AssessmentContent = () => {
             </p>
           </ScrollAnimate>
         </div>
+        {lastPrediction && <LastPrediction lastPredictionData={lastPrediction} />}  {/* show last prediction result */}
       </div>
 
       <div className="mt-48">

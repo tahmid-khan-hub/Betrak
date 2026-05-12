@@ -7,5 +7,5 @@ export interface MentalHealthQuestionsPros {
   back: () => void;
   onFinish: (answers: Record<string, string>) => void;
   isSubmitting?: boolean;
-  hasExistingAssessment?: boolean;
+  lastAssessmentDate?: string;
 }

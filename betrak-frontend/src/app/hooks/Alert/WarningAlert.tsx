@@ -23,7 +23,7 @@ export function WarningAlert({ title, description, onClose, } :
       className="fixed bottom-6 right-6 z-50"
     >
         <Alert className="w-80 bg-gray-900 border-yellow-500/50">
-            <AlertTriangleIcon className="text-yellow-500 mt-0.5"/>
+            <AlertTriangleIcon className="bg-yellow-500 mt-0.5"/>
             <AlertTitle className="text-yellow-400">{title}</AlertTitle>
             <AlertDescription className="text-yellow-400/70">
                 {description}

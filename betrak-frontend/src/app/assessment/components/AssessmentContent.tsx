@@ -90,7 +90,7 @@ const AssessmentContent = () => {
             <MentalHealthQuestions
               back={() => setStep(1)}
               onFinish={handleFinish} isSubmitting={isSubmitting}
-              hasExistingAssessment={!!lastPrediction} /> )}
+              lastAssessmentDate={lastPrediction?.created_at} /> )}
         </div>
       </div>
 

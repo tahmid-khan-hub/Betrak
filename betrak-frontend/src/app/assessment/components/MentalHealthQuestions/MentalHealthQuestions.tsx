@@ -11,10 +11,11 @@ import { MentalHealthQuestionsPros, Question } from "@/types/MentalHealthQuestio
 import { AnimatePresence } from "framer-motion";
 import { WarningAlert } from "@/app/hooks/Alert/WarningAlert";
 
-const MentalHealthQuestions = ({ back, onFinish, isSubmitting, hasExistingAssessment }: MentalHealthQuestionsPros) => {
+const MentalHealthQuestions = ({ back, onFinish, isSubmitting, lastAssessmentDate }: MentalHealthQuestionsPros) => {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [showWarning, setShowWarning] = useState(false);
   const [warningShown, setWarningShown] = useState(false);
+  const [daysSinceLast, setDaysSinceLast] = useState<number | null>(null);
 
   const { data: questions, isLoading, isError, refetch } = useQuery<Question[]>({
     queryKey: ["questions"],
@@ -25,12 +26,16 @@ const MentalHealthQuestions = ({ back, onFinish, isSubmitting, hasExistingAssess
 
   const handleFinish = () => {
     if (!allAnswered) return;
-    if (hasExistingAssessment && !warningShown) {
-      setShowWarning(true); // show warning first
-      setWarningShown(true); // mark as seen
+    const days = lastAssessmentDate
+      ? Math.floor((Date.now() - new Date(lastAssessmentDate).getTime()) / (1000 * 60 * 60 * 24)) : null;
+
+    if (days !== null && days < 7 && !warningShown) {
+      setDaysSinceLast(days);
+      setShowWarning(true);
+      setWarningShown(true);
       return;
     }
-    onFinish(answers); // second click proceeds
+    onFinish(answers);
   }
 
   if (isLoading) return <MentalHealthQuestionsSkeleton />;
@@ -92,7 +97,7 @@ const MentalHealthQuestions = ({ back, onFinish, isSubmitting, hasExistingAssess
       <AnimatePresence>
         {showWarning && (
           <WarningAlert title="Retaking So Soon?"
-            description="For more accurate progress tracking, we recommend waiting at least 7 days between assessments."
+            description={`You last took the assessment ${daysSinceLast} day${daysSinceLast === 1 ? "" : "s"} ago. For more accurate progress tracking, we recommend waiting at least 7 days between assessments.`}
             onClose={() => setShowWarning(false)} />
         )}
       </AnimatePresence>
